@@ -1,0 +1,69 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "questions",
+  "prompt_version": "v1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "b1a76032604c49aea33017e847f0dce6",
+  "timestamp": "2026-11-20T21:00:50.565057+00:00",
+  "customer_id": "c1",
+  "cache_key": "8023f32832f96b7ee96e14bfd66322685e60b652b59da54e8060a93266d1c300",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "51c126cfcbaa47e28c5274008da4dbdb",
+  "output": {
+    "questions": [
+      {
+        "priority": 1,
+        "question": "Você poderia testar se outro aparelho, como um notebook ou outro celular, também perde a conexão quando você está na sala?",
+        "why_needed": "Ajuda a identificar se o problema está apenas no primeiro celular ou na cobertura do sinal do roteador para o cômodo."
+      },
+      {
+        "priority": 2,
+        "question": "Existe algum obstáculo grosso entre o roteador e a sala, como paredes de concreto, espelhos grandes ou móveis metálicos?",
+        "why_needed": "Esses materiais podem bloquear ou enfraquecer o sinal de Wi-Fi facilmente."
+      },
+      {
+        "priority": 3,
+        "question": "As luzes indicadoras (lâmpadas pequenas) no roteador continuam acesas normalmente quando o celular perde a conexão?",
+        "why_needed": "Permite verificar se a internet da operadora está caindo por completo ou se é apenas o sinal sem fio."
+      },
+      {
+        "priority": 4,
+        "question": "Você já tentou reiniciar o roteador tirando ele da tomada por dez segundos e depois ligando de novo?",
+        "why_needed": "Reiniciar corrige pequenos travamentos temporários no equipamento de Wi-Fi."
+      }
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 179,
+      "candidatesTokenCount": 252,
+      "totalTokenCount": 431,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 179
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1884
+}

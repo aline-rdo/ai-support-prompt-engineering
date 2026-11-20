@@ -1,0 +1,72 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "steps",
+  "prompt_version": "v1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "fd796cdb66a84d618f5ae154194351ba",
+  "timestamp": "2026-11-20T21:00:46.762510+00:00",
+  "customer_id": "c1",
+  "cache_key": "a8fa6b2c4a68ebb964820f9800380b32e35d03a224fb27e336d7d9e7ee062504",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "51c126cfcbaa47e28c5274008da4dbdb",
+  "output": {
+    "steps": [
+      {
+        "number": 1,
+        "action": "Aproxime-se do roteador com o celular na sala e verifique se o ícone do Wi-Fi volta a aparecer cheio.",
+        "expected_result": "A conexão de internet é estabilizada quando você está mais próximo do aparelho.",
+        "if_it_fails": "Se continuar caindo mesmo perto, vá para o próximo passo."
+      },
+      {
+        "number": 2,
+        "action": "Desligue o roteador da tomada, aguarde 10 segundos e depois ligue-o novamente.",
+        "expected_result": "As luzes do aparelho piscam e a rede Wi-Fi é reiniciada com sucesso.",
+        "if_it_fails": "Se as quedas na sala persistirem, vá para o próximo passo."
+      },
+      {
+        "number": 3,
+        "action": "Teste a conexão Wi-Fi na sala usando um segundo aparelho, como outro celular ou um notebook.",
+        "expected_result": "Identificar se o problema ocorre apenas no seu celular ou em todos os dispositivos na sala.",
+        "if_it_fails": "Se o problema persistir e afetar mais de um aparelho, será necessário realizar o escalonamento."
+      }
+    ],
+    "estimated_time": "10 a 15 minutos",
+    "escalation_criteria": [
+      "Quedas de Wi-Fi continuam afetando múltiplos dispositivos após reiniciar o roteador",
+      "Presença de barreiras físicas muito densas (como paredes de concreto espessas ou espelhos grandes) entre a sala e o roteador"
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 204,
+      "candidatesTokenCount": 385,
+      "totalTokenCount": 589,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 204
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 2074
+}

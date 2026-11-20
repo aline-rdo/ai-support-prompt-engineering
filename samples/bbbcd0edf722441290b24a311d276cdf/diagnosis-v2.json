@@ -1,0 +1,76 @@
+{
+  "customer": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "diagnosis",
+  "prompt_version": "v2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "4c8cb38a11bd4c9687d602b15ee75257",
+  "timestamp": "2026-11-20T21:01:13.022665+00:00",
+  "customer_id": "c2",
+  "cache_key": "f34b2cbd90bdd0c38d4cf29f8ca32fddb0a2711ee18006a001dd14a0c2c9cc69",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "bbbcd0edf722441290b24a311d276cdf",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "Atenuação de sinal na faixa de 5 GHz devido a barreiras físicas entre a sala e o roteador.",
+        "likelihood": "alta",
+        "supporting_evidence": [
+          "Perda de conexão específica na sala",
+          "Funcionamento normal próximo ao roteador"
+        ]
+      },
+      {
+        "description": "Interferência eletromagnética pontual ou saturação do canal Wi-Fi na frequência utilizada.",
+        "likelihood": "média",
+        "supporting_evidence": [
+          "Queda restrita a um local específico do ambiente"
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "O celular perde a conexão na sala",
+      "A conexão funciona perto do roteador",
+      "Ainda não foi realizado teste com outro aparelho"
+    ],
+    "missing_information": [
+      "Banda de frequência em uso (2.4 GHz ou 5 GHz)",
+      "Comportamento de outro dispositivo na mesma localização da sala",
+      "Intensidade do sinal RSSI e taxa de enlace no momento da desconexão"
+    ],
+    "probable_conclusion": "O problema decorre provavelmente da degradação do sinal sem fio por atenuação de percurso ou obstáculos na sala, sendo necessário isolar se a falha é restrita à controladora Wi-Fi do celular atual.",
+    "confidence": "moderada"
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 421,
+      "candidatesTokenCount": 330,
+      "totalTokenCount": 751,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 421
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 2171
+}

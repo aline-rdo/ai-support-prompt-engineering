@@ -1,0 +1,69 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "diagnosis",
+  "prompt_version": "v1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "666302d11cc64a20a8d652c36a64920d",
+  "timestamp": "2026-11-20T21:00:43.354949+00:00",
+  "customer_id": "c1",
+  "cache_key": "10a4729b7e5f896f3acc1ba660a333a17019ea73f8e2647993dee4bfd8418049",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "51c126cfcbaa47e28c5274008da4dbdb",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "Interferencia ou sinal fraco de Wi-Fi devido a distancia e barreiras fisicas entre a sala e o roteador.",
+        "likelihood": "alta",
+        "supporting_evidence": [
+          "O celular perde a conexao na sala",
+          "Perto do roteador funciona"
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "O celular perde a conexao especificamente na sala",
+      "A conexao funciona normalmente proximo ao roteador",
+      "Ainda nao foi feito o teste com outro aparelho"
+    ],
+    "missing_information": [
+      "Distancia exata entre o roteador e a sala",
+      "Presenca de paredes grossas, espelhos ou outros obstaculos no caminho",
+      "Modelo do roteador e operadora de internet"
+    ],
+    "probable_conclusion": "O problema parece ser uma limitacao de alcance ou barreira de sinal entre o roteador e o comodo (sala), causando a perda de conexao a distancia.",
+    "confidence": "media"
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 205,
+      "candidatesTokenCount": 199,
+      "totalTokenCount": 404,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 205
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1788
+}

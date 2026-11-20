@@ -1,0 +1,68 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "diagnosis",
+  "prompt_version": "v2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "1ff2d75decaf42a1b5e20b3e72792cdf",
+  "timestamp": "2026-11-20T21:00:45.145133+00:00",
+  "customer_id": "c1",
+  "cache_key": "f79f5c869ce76f74da90c0d51d99f2f3d91d3c2d60e8c225d0d96cd0a360b364",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "51c126cfcbaa47e28c5274008da4dbdb",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "Obstaculos fisicos entre a sala e o roteador bloqueiam o sinal do Wi-Fi, igual a uma parede grossa que esconde a luz de uma lampada.",
+        "likelihood": "alta",
+        "supporting_evidence": [
+          "O celular perde a conexao na sala.",
+          "Perto do roteador funciona."
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "O celular perde a conexao na sala.",
+      "Perto do roteador funciona.",
+      "Ainda nao testou outro aparelho."
+    ],
+    "missing_information": [
+      "Se outros aparelhos tambem perdem o sinal na sala.",
+      "Qual a distancia exata e quais obstaculos existem entre o roteador e a sala."
+    ],
+    "probable_conclusion": "O problema parece ser a distancia ou barreiras fisicas enfraquecendo o sinal do Wi-Fi na sala.",
+    "confidence": "media"
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 420,
+      "candidatesTokenCount": 185,
+      "totalTokenCount": 605,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 420
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1615
+}

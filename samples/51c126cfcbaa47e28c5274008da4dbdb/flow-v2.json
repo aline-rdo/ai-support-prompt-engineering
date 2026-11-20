@@ -1,0 +1,56 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "flow",
+  "prompt_version": "v2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "59fea67cee6542b2b44459438256fdb1",
+  "timestamp": "2026-11-20T21:00:55.399858+00:00",
+  "customer_id": "c1",
+  "cache_key": "4d611493275e900b0153dcc4e20d4dd4c2f9172b8853ca4030443ada9b842b1a",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "51c126cfcbaa47e28c5274008da4dbdb",
+  "output": {
+    "ascii_flowchart": "+-----------------------+\n| O sinal cai na sala?  |\n+-----------------------+\n      |           |\n    (Sim)       (Não)\n      v           v\n+-----------+ +-----------+\n| Aproximar | | Usar cabo |\n| do roteia | | ou outro  |\n| ou parede | | comodo    |\n+-----------+ +-----------+",
+    "decision_nodes": [
+      {
+        "id": "node_1",
+        "question": "O celular perde a conexão na sala e funciona perto do roteador?",
+        "yes": "Aproxime-se do roteador ou afaste barreiras físicas como paredes, pois obstáculos bloqueiam as ondas de rádio assim como uma porta fechada abafa o som.",
+        "no": "Teste o acesso à internet em outro cômodo da casa para verificar se o problema ocorre em toda a residência ou apenas na sala."
+      }
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 400,
+      "candidatesTokenCount": 219,
+      "totalTokenCount": 619,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 400
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1765
+}

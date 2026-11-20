@@ -1,0 +1,66 @@
+{
+  "customer": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "steps",
+  "prompt_version": "v2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "aa22d760132e4a5a977461b95d03f3d8",
+  "timestamp": "2026-11-20T21:01:17.389973+00:00",
+  "customer_id": "c2",
+  "cache_key": "2e723727e4fabae57ee15f96bb1f2161b076601af924e318e44ee4201b0d0ae0",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "6d88a80272aa42e9810e17645e9c3331",
+  "output": {
+    "steps": [
+      {
+        "number": 1,
+        "action": "Valide a intensidade do sinal RSSI e a frequência da conexão (2.4 GHz versus 5 GHz) no celular afetado enquanto estiver na sala.",
+        "expected_result": "Identificar atenuação excessiva do sinal ou instabilidade na banda de 5 GHz devido a barreiras físicas.",
+        "if_it_fails": "Prossiga para o isolamento do terminal conectando outro dispositivo na mesma localização."
+      },
+      {
+        "number": 2,
+        "action": "Conecte um segundo dispositivo na sala para isolar se a falha é restrita à placa de rede do primeiro celular.",
+        "expected_result": "Determinar se o problema afeta múltiplos clientes ou apenas o terminal inicial.",
+        "if_it_fails": "Execute o teste de canal de rádio e reinicialização do roteador para mitigar interferências locais."
+      }
+    ],
+    "estimated_time": "10 minutos",
+    "escalation_criteria": [
+      "Persistência da queda de Wi-Fi em múltiplos dispositivos na mesma zona de sombra.",
+      "Falha no enlace após alteração de canal e largura de banda no roteador."
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 415,
+      "candidatesTokenCount": 288,
+      "totalTokenCount": 703,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 415
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 2109
+}

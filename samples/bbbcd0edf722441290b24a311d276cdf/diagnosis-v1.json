@@ -1,0 +1,67 @@
+{
+  "customer": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "diagnosis",
+  "prompt_version": "v1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "2e84679262b34b3da31357a3326f3011",
+  "timestamp": "2026-11-20T21:01:11.399120+00:00",
+  "customer_id": "c2",
+  "cache_key": "9a67c15a57bb2587e4fa54604cdd8490c5bb39c22e0824ad5846ce83c41d9fd1",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "bbbcd0edf722441290b24a311d276cdf",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "Atenuação de sinal por barreiras físicas ou interferência de 2.4GHz na sala",
+        "likelihood": "alta",
+        "supporting_evidence": [
+          "O celular perde a conexão na sala",
+          "Perto do roteador funciona"
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "Perda de conexão Wi-Fi ocorre especificamente na sala",
+      "Conexão funciona normalmente perto do roteador"
+    ],
+    "missing_information": [
+      "Comportamento com outro dispositivo na sala",
+      "Banda utilizada (2.4GHz ou 5GHz)"
+    ],
+    "probable_conclusion": "O problema parece estar relacionado à cobertura do sinal Wi-Fi ou interferência na área da sala.",
+    "confidence": "média"
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 206,
+      "candidatesTokenCount": 151,
+      "totalTokenCount": 357,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 206
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1620
+}

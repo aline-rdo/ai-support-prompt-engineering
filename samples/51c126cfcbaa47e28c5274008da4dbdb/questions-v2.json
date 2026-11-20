@@ -1,0 +1,54 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "questions",
+  "prompt_version": "v2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "eba2cccd5b1e4a07b277518f0e81205f",
+  "timestamp": "2026-11-20T21:00:52.451411+00:00",
+  "customer_id": "c1",
+  "cache_key": "5b72028d10cb581b2a6151473e39f4cf9891fe1347e481b971bb2d9258c83ef0",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "51c126cfcbaa47e28c5274008da4dbdb",
+  "output": {
+    "questions": [
+      {
+        "priority": 1,
+        "question": "O problema acontece com outros aparelhos na sala?",
+        "why_needed": "Precisamos saber se a falha é apenas no seu celular ou na rede da sala."
+      }
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 392,
+      "candidatesTokenCount": 48,
+      "totalTokenCount": 440,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 392
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1291
+}

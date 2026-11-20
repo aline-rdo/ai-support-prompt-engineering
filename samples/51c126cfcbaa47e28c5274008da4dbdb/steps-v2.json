@@ -1,0 +1,66 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "steps",
+  "prompt_version": "v2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "83a00665bcaa4febb7b9114b0746b338",
+  "timestamp": "2026-11-20T21:00:48.839756+00:00",
+  "customer_id": "c1",
+  "cache_key": "fc2f2fa22c7b60fbd0247c9e16beadd594f335c92d3a5380439106b3bd75a60a",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "51c126cfcbaa47e28c5274008da4dbdb",
+  "output": {
+    "steps": [
+      {
+        "number": 1,
+        "action": "Aproxime o celular um pouco mais do roteador, como se estivesse chegando perto da porta de um cômodo vizinho.",
+        "expected_result": "O sinal deve melhorar e a internet voltar a carregar as páginas.",
+        "if_it_fails": "Se continuar caindo, vamos desligar o aparelho da tomada."
+      },
+      {
+        "number": 2,
+        "action": "Desconecte a caixa do Wi-Fi da tomada por dez segundos e volte a ligar, igualzinho a quando reiniciamos a televisão.",
+        "expected_result": "As luzes do aparelho vão piscar e o sinal de internet será atualizado.",
+        "if_it_fails": "Se o problema persistir na sala, será preciso testar com outro telefone para tirar a dúvida."
+      }
+    ],
+    "estimated_time": "5 minutos",
+    "escalation_criteria": [
+      "Se o Wi-Fi continuar caindo mesmo após reiniciar o roteador.",
+      "Se outro aparelho também perder a conexão no mesmo local."
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 414,
+      "candidatesTokenCount": 266,
+      "totalTokenCount": 680,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 414
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1723
+}

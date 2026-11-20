@@ -1,0 +1,62 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "flow",
+  "prompt_version": "v1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "11387831904b41878dee44fd26a8d352",
+  "timestamp": "2026-11-20T21:00:53.745879+00:00",
+  "customer_id": "c1",
+  "cache_key": "ca76cb502f620b0ebdafa9097f799995a775a5fe27dd7df80bd4aaf31eeaa700",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "51c126cfcbaa47e28c5274008da4dbdb",
+  "output": {
+    "ascii_flowchart": "[Inicio: Queda de Wi-Fi]\n          |\n          v\n[Esta proximo ao roteador?]\n  |                    |\n(Sim)                 (Nao)\n  |                    |\n  v                    v\n[Funciona normal]   [Problema de sinal]\n  |                    |\n  v                    v\n[Testar outro celular] [Aproximar da sala]\n  |                    |\n  +---------+----------+\n            |\n            v\n    [Fim do atendimento]",
+    "decision_nodes": [
+      {
+        "id": "d1",
+        "question": "O celular funciona perto do roteador?",
+        "yes": "d2",
+        "no": "sinal_fraco"
+      },
+      {
+        "id": "d2",
+        "question": "Outro aparelho apresenta o mesmo problema?",
+        "yes": "problema_roteador",
+        "no": "problema_celular"
+      }
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 199,
+      "candidatesTokenCount": 205,
+      "totalTokenCount": 404,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 199
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1652
+}

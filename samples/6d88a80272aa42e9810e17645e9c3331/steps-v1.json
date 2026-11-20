@@ -1,0 +1,66 @@
+{
+  "customer": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "steps",
+  "prompt_version": "v1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "ec5b3131effb44feb5212575ec520119",
+  "timestamp": "2026-11-20T21:01:15.649634+00:00",
+  "customer_id": "c2",
+  "cache_key": "f4e1c6d5ffe1abca501a58d72c5c406fe6420c113932430417d57b857bc8c934",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "6d88a80272aa42e9810e17645e9c3331",
+  "output": {
+    "steps": [
+      {
+        "number": 1,
+        "action": "Verifique a frequência do Wi-Fi no dispositivo (teste alternar entre 2.4GHz e 5GHz).",
+        "expected_result": "Estabilização da conexão na frequência adequada para a distância.",
+        "if_it_fails": "Prossiga para o teste de outro dispositivo."
+      },
+      {
+        "number": 2,
+        "action": "Conecte outro aparelho na rede Wi-Fi na mesma localização da sala.",
+        "expected_result": "Identificação se o problema é isolado no primeiro celular ou geral na área.",
+        "if_it_fails": "Prossiga para a análise de interferência física ou sinal."
+      }
+    ],
+    "estimated_time": "10 minutos",
+    "escalation_criteria": [
+      "Persistência da falha em múltiplos dispositivos",
+      "Sinal fraco comprovado próximo ao roteador"
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 205,
+      "candidatesTokenCount": 232,
+      "totalTokenCount": 437,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 205
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1734
+}
