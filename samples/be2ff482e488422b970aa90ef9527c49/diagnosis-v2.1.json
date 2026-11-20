@@ -1,0 +1,75 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "diagnosis",
+  "prompt_version": "v2.1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "9847c7fd8eae4cd8abc2edba462070d6",
+  "timestamp": "2026-11-20T21:15:01.710999+00:00",
+  "customer_id": "c1",
+  "cache_key": "36d5f8c4c97037c9b4bbf38e2195cf85716b8409032fd3ec286343caaea20006",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "be2ff482e488422b970aa90ef9527c49",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "Obstáculos fisicos ou interferencia na sala enfraquecem o sinal do Wi-Fi.",
+        "likelihood": "moderada",
+        "supporting_evidence": [
+          "O celular perde a conexao na sala.",
+          "Perto do roteador funciona."
+        ]
+      },
+      {
+        "description": "Falha pontual na antena do celular usada apenas naquele ambiente.",
+        "likelihood": "baixa",
+        "supporting_evidence": [
+          "O celular perde a conexao na sala."
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "O celular perde a conexao na sala.",
+      "Perto do roteador funciona.",
+      "Ainda nao testei outro aparelho."
+    ],
+    "missing_information": [
+      "Comportamento de outro aparelho na sala.",
+      "Distancia exata ou barreiras entre a sala e o roteador."
+    ],
+    "probable_conclusion": "O problema parece ser a intensidade do sinal que nao chega bem na sala, como uma mangueira de agua cuja pressao cai longe da torneira.",
+    "confidence": "moderada"
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 518,
+      "candidatesTokenCount": 279,
+      "totalTokenCount": 797,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 518
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1854
+}

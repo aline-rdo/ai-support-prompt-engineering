@@ -1,0 +1,66 @@
+{
+  "customer": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "steps",
+  "prompt_version": "v2.1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "15a3e3a331a74e02be742ee2f7eb0a90",
+  "timestamp": "2026-11-20T21:15:09.646532+00:00",
+  "customer_id": "c2",
+  "cache_key": "15a1d9934bcc7a51cbe2b0d7c9bafe766956cfcb0ff78fad5ea5b2b38c5cbff9",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "604bd2f9a9474fe0ac7bea635faa5205",
+  "output": {
+    "steps": [
+      {
+        "number": 1,
+        "action": "Desative e reative o Wi-Fi do celular na sala para forçar a revalidação do enlace com o BSSID mais próximo.",
+        "expected_result": "Reconexão imediata ao AP da sala com RSSI nominal.",
+        "if_it_fails": "Persistindo a queda, execute o passo 2."
+      },
+      {
+        "number": 2,
+        "action": "Conecte outro dispositivo na mesma localização para isolar falha no rádio do cliente versus atenuação de sinal no meio físico.",
+        "expected_result": "O segundo dispositivo mantém estabilidade na mesma faixa de frequência.",
+        "if_it_fails": "Se houver falha em ambos, valide a atenuação de sinal na sala."
+      }
+    ],
+    "estimated_time": "5 minutos",
+    "escalation_criteria": [
+      "Queda persistente do enlace com RSSI superior a -65 dBm em múltiplos clientes",
+      "Packet loss superior a 15% na rota para o gateway padrão"
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 510,
+      "candidatesTokenCount": 216,
+      "totalTokenCount": 726,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 510
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 2028
+}

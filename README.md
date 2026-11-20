@@ -24,6 +24,21 @@ Em 20/11/2026, a tabela do Google lista entrada e saída gratuitas para Gemini 2
 
 ## Uso
 
+Para reproduzir os experimentos registrados, use `LLM_MODEL=gemini-3.5-flash-lite` no arquivo local ou defina a variável no PowerShell. Neste projeto, a API recusou o 2.5 Flash para novos usuários (404) e o 3.8 Flash retornou 503. Os JSONs identificam o modelo efetivamente solicitado em cada chamada.
+
+```powershell
+$env:LLM_MODEL = "gemini-3.5-flash-lite"
+$env:LLM_TEMPERATURE = "0.3"
+$env:LLM_MAX_TOKENS = "4096"
+& $python -m support_assistant.cli generate --customer c1 --ticket t1 --type all --prompt-version v2.1 --no-cache
+& $python -m support_assistant.cli generate --customer c2 --ticket t1 --type diagnosis --prompt-version v2.1 --no-cache
+& $python -m support_assistant.cli generate --customer c2 --ticket t1 --type steps --prompt-version v2.1 --no-cache
+& $python -m support_assistant.cli compare --customer c1 --ticket t2 --type questions --versions v2 v2.1
+& $python -m support_assistant.cli generate --customer c1 --ticket t2 --type questions --prompt-version v2.1
+```
+
+A última linha recupera o resultado recém-comparado do cache. A v1 estabelece a referência simples; a v2 adapta a comunicação ao perfil; a v2.1 acrescenta instruções para calibrar hipóteses, ensinar os testes, solicitar observações e alinhar os ramos do fluxo. Veja os [casos, amostras e avaliações provisórias](REVISAO_V2_1.md).
+
 O catálogo inclui Rosa (`c1`, leiga, telefone) e Caio (`c2`, avançado, chat). O ticket `t1` relata queda de Wi-Fi na sala. O `t2` descreve um aplicativo que fecha e deixa aparelho, sistema e versão em aberto. Use o ID cadastrado ou escreva o relato entre aspas. Os comandos de geração pedem os campos omitidos no terminal.
 
 ```powershell

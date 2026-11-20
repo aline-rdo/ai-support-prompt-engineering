@@ -1,0 +1,68 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "flow",
+  "prompt_version": "v2.1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "bb8746293a124f53ab16d20b5054afee",
+  "timestamp": "2026-11-20T21:15:06.276115+00:00",
+  "customer_id": "c1",
+  "cache_key": "bd516f8227785a2a787277b8bbc9037ff64d8dec5e39dfdb012d74aeb8305849",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "be2ff482e488422b970aa90ef9527c49",
+  "output": {
+    "ascii_flowchart": "[D1] O celular funciona perto do roteador?\n  SIM -> D2\n  NÃO -> D3\n[D2] Você já testou outro aparelho na sala?\n  SIM -> Verifique a interferência de paredes e objetos grandes.\n  NÃO -> Teste outro aparelho na sala para comparar.\n[D3] O indicador luminoso do roteador está aceso?\n  SIM -> Reinicie o roteador tirando da tomada.\n  NÃO -> Verifique se o cabo de energia está conectado.",
+    "decision_nodes": [
+      {
+        "id": "D1",
+        "question": "O celular funciona perto do roteador?",
+        "yes": "D2",
+        "no": "D3"
+      },
+      {
+        "id": "D2",
+        "question": "Você já testou outro aparelho na sala?",
+        "yes": "Verifique a interferência de paredes e objetos grandes.",
+        "no": "Teste outro aparelho na sala para comparar."
+      },
+      {
+        "id": "D3",
+        "question": "O indicador luminoso do roteador está aceso?",
+        "yes": "Reinicie o roteador tirando da tomada.",
+        "no": "Verifique se o cabo de energia está conectado."
+      }
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 580,
+      "candidatesTokenCount": 307,
+      "totalTokenCount": 887,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 580
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1640
+}

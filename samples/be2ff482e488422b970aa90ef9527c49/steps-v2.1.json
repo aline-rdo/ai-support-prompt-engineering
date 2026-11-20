@@ -1,0 +1,60 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "steps",
+  "prompt_version": "v2.1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "1144f405714d4d31bc7c1e823618642c",
+  "timestamp": "2026-11-20T21:15:03.571363+00:00",
+  "customer_id": "c1",
+  "cache_key": "216a88a08949c1198470114f8bd5c3592046c83fe93ebce0aa043e3e1c77f190",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "be2ff482e488422b970aa90ef9527c49",
+  "output": {
+    "steps": [
+      {
+        "number": 1,
+        "action": "Aproxime-se do roteador na sala e veja se a conexão melhora, como chegar mais perto da janela para ouvir melhor um som distante.",
+        "expected_result": "O celular mantém a internet sem cair quando está mais perto.",
+        "if_it_fails": "Se continuar caindo perto do roteador, teste conectar outro aparelho na mesma rede."
+      }
+    ],
+    "estimated_time": "5 minutos",
+    "escalation_criteria": [
+      "A queda de Wi-Fi persiste mesmo perto do roteador.",
+      "Outro aparelho também apresenta falha na mesma rede."
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 509,
+      "candidatesTokenCount": 164,
+      "totalTokenCount": 673,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 509
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1391
+}

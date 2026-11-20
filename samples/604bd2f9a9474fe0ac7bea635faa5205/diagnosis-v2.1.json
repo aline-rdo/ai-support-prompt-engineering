@@ -1,0 +1,75 @@
+{
+  "customer": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "diagnosis",
+  "prompt_version": "v2.1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "3679ed7277294885ae36f552bad73e6a",
+  "timestamp": "2026-11-20T21:15:07.934969+00:00",
+  "customer_id": "c2",
+  "cache_key": "508513233a0285129c279cab9f432c3511b1bb9bd09157c54bd66e6f48e19275",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "604bd2f9a9474fe0ac7bea635faa5205",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "Atenuação de sinal na faixa de 5 GHz devido a barreiras físicas e distância.",
+        "likelihood": "alta",
+        "supporting_evidence": [
+          "O celular perde a conexão na sala",
+          "Perto do roteador funciona"
+        ]
+      },
+      {
+        "description": "Interferência eletromagnética pontual na banda de 2.4 GHz na área da sala.",
+        "likelihood": "moderada",
+        "supporting_evidence": [
+          "O celular perde a conexão na sala"
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "O celular perde a conexão na sala",
+      "Perto do roteador funciona",
+      "Ainda não testei outro aparelho"
+    ],
+    "missing_information": [
+      "Comportamento de outro dispositivo na mesma localização da sala",
+      "Banda de frequência utilizada durante a desconexão"
+    ],
+    "probable_conclusion": "Há provável degradação do enlace sem fio na sala, sugerindo atenuação de sinal por obstáculo ou interferência.",
+    "confidence": "moderada"
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 519,
+      "candidatesTokenCount": 203,
+      "totalTokenCount": 722,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 519
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1702
+}

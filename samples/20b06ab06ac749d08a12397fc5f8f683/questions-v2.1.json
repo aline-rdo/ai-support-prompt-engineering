@@ -1,0 +1,54 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t2",
+    "title": "Aplicativo fecha",
+    "description": "Ao abrir o aplicativo ele fecha."
+  },
+  "content_type": "questions",
+  "prompt_version": "v2.1",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "7fcf6051bbef4cd8b654e1ca7f533f12",
+  "timestamp": "2026-11-20T21:15:28.614708+00:00",
+  "customer_id": "c1",
+  "cache_key": "6d68d5388e4f3ce5518a3f18161cebfc7ebdc3ebeb4606f93d49c6a498546fc2",
+  "cache_mode": "refresh",
+  "cache_hit": false,
+  "comparison_id": "20b06ab06ac749d08a12397fc5f8f683",
+  "output": {
+    "questions": [
+      {
+        "priority": 1,
+        "question": "Qual é o nome exato do aplicativo que está fechando sozinho?",
+        "why_needed": "Identificar o programa afetado para direcionar a orientação correta."
+      }
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 465,
+      "candidatesTokenCount": 48,
+      "totalTokenCount": 513,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 465
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1312
+}
