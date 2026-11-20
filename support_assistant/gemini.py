@@ -21,7 +21,7 @@ class Config:
         if os.getenv("LLM_PROVIDER", "gemini") != "gemini":
             raise ValueError("Provedor suportado: gemini.")
         try:
-            c = cls(os.getenv("LLM_MODEL", "gemini-2.5-flash"), float(os.getenv("LLM_TEMPERATURE", ".3")), int(os.getenv("LLM_MAX_TOKENS", "4096")), float(os.getenv("LLM_TIMEOUT_SECONDS", "45")))
+            c = cls(os.getenv("LLM_MODEL", "gemini-3.5-flash-lite"), float(os.getenv("LLM_TEMPERATURE", ".3")), int(os.getenv("LLM_MAX_TOKENS", "4096")), float(os.getenv("LLM_TIMEOUT_SECONDS", "45")))
         except ValueError as erro:
             raise ValueError("Configuração numérica inválida no .env.") from erro
         if not re.fullmatch(r"[a-zA-Z0-9._-]+", c.model) or not 0 <= c.temperature <= 2 or c.max_tokens < 1 or not math.isfinite(c.timeout) or c.timeout <= 0:

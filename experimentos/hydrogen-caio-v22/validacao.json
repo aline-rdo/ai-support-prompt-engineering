@@ -1,0 +1,35 @@
+{
+  "tipo": "validacao",
+  "modelo": "gemini-4-hydrogen",
+  "configuracao": {
+    "maxOutputTokens": 128,
+    "thinkingConfig": {
+      "thinkingLevel": "LOW"
+    }
+  },
+  "timestamp": "2026-11-20T21:54:56.777568+00:00",
+  "http": 200,
+  "uso": {
+    "promptTokenCount": 36,
+    "candidatesTokenCount": 5,
+    "totalTokenCount": 66,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 36
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 5
+      }
+    ],
+    "thoughtsTokenCount": 25,
+    "serviceTier": "standard"
+  },
+  "fim": "STOP",
+  "modelo_retornado": "gemini-4-hydrogen",
+  "response_id": "scEAa9zmCtD85NoP7Zmk6A0",
+  "resposta": "OK"
+}

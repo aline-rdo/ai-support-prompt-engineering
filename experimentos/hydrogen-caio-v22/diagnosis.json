@@ -1,0 +1,79 @@
+{
+  "tipo": "diagnosis",
+  "modelo": "gemini-4-hydrogen",
+  "configuracao": {
+    "maxOutputTokens": 1400,
+    "thinkingConfig": {
+      "thinkingLevel": "LOW"
+    },
+    "responseMimeType": "application/json"
+  },
+  "timestamp": "2026-11-20T21:55:48.551156+00:00",
+  "perfil": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "versao": "v2.2",
+  "http": 200,
+  "uso": {
+    "promptTokenCount": 646,
+    "candidatesTokenCount": 259,
+    "totalTokenCount": 1533,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 646
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 259
+      }
+    ],
+    "thoughtsTokenCount": 628,
+    "serviceTier": "standard"
+  },
+  "fim": "STOP",
+  "modelo_retornado": "gemini-4-hydrogen",
+  "response_id": "5cEAa_L6BIvCodAP9uHd8A4",
+  "resposta": "{\"hypotheses\": [{\"description\": \"Degradação da conexão associada ao ambiente ou à distância na sala.\", \"likelihood\": \"moderada\", \"supporting_evidence\": [\"O celular perde a conexão na sala.\", \"O celular funciona perto do roteador.\"]}, {\"description\": \"Falha específica do celular ao operar fora da proximidade imediata do roteador.\", \"likelihood\": \"baixa\", \"supporting_evidence\": [\"O celular perde a conexão na sala.\", \"Outro aparelho ainda não foi testado.\"]}], \"observed_evidence\": [\"O celular perde a conexão na sala.\", \"O celular funciona perto do roteador.\", \"Outro aparelho ainda não foi testado.\"], \"missing_information\": [\"Comportamento de um segundo aparelho na mesma rede e no mesmo local (sala).\"], \"probable_conclusion\": \"Teste de isolamento: mantenha a mesma rede e o local (sala) como controle e altere a variável (segundo aparelho). Se a queda ocorrer no segundo aparelho, a evidência aponta para o ambiente ou alcance na sala; se o segundo aparelho permanecer conectado, a evidência aponta para o celular. Sem outro aparelho disponível, não é possível isolar ambiente versus dispositivo.\", \"confidence\": \"baixa\"}",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "Degradação da conexão associada ao ambiente ou à distância na sala.",
+        "likelihood": "moderada",
+        "supporting_evidence": [
+          "O celular perde a conexão na sala.",
+          "O celular funciona perto do roteador."
+        ]
+      },
+      {
+        "description": "Falha específica do celular ao operar fora da proximidade imediata do roteador.",
+        "likelihood": "baixa",
+        "supporting_evidence": [
+          "O celular perde a conexão na sala.",
+          "Outro aparelho ainda não foi testado."
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "O celular perde a conexão na sala.",
+      "O celular funciona perto do roteador.",
+      "Outro aparelho ainda não foi testado."
+    ],
+    "missing_information": [
+      "Comportamento de um segundo aparelho na mesma rede e no mesmo local (sala)."
+    ],
+    "probable_conclusion": "Teste de isolamento: mantenha a mesma rede e o local (sala) como controle e altere a variável (segundo aparelho). Se a queda ocorrer no segundo aparelho, a evidência aponta para o ambiente ou alcance na sala; se o segundo aparelho permanecer conectado, a evidência aponta para o celular. Sem outro aparelho disponível, não é possível isolar ambiente versus dispositivo.",
+    "confidence": "baixa"
+  }
+}

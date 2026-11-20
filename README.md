@@ -2,9 +2,11 @@
 
 CLI em português que transforma um perfil e um relato de suporte em diagnóstico, passos de resolução, perguntas priorizadas e fluxograma. Cada geração produz um registro JSON. A comparação usa o mesmo cenário nas duas versões e permite à candidata avaliar as respostas lado a lado.
 
+Para revisar a entrega sem usar uma chave, abra a [matriz de avaliação com os 27 JSONs](PROMPT_ENGINEERING_NOTES.md), o [estudo separado com Hydrogen](experimentos/hydrogen-caio-v22/README.md) e o [checklist de publicação](ENTREGA.md).
+
 ## Instalação no Windows
 
-Na raiz do repositório, com Python 3.11 ou superior e PowerShell, execute:
+Na raiz do repositório, com Python 3.11 ou superior e PowerShell, execute os comandos abaixo. Se o launcher `py` não encontrar o interpretador, substitua `py -3` por `python` ou pelo caminho de um Python que tenha o módulo venv.
 
 ```powershell
 py -3 -m venv .venv
@@ -20,11 +22,11 @@ No Linux ou macOS, crie o ambiente com `python3 -m venv .venv`, ative com `sourc
 
 Para gerar conteúdo, crie uma chave no [Google AI Studio](https://aistudio.google.com/apikey), selecione um projeto com cota gratuita e preencha `LLM_API_KEY` no arquivo local `.env`. As variáveis do processo têm precedência sobre o arquivo. A temperatura padrão é 0,3 para reduzir a variação entre respostas. O limite é de 4096 tokens por geração e o timeout de rede é de 45 segundos.
 
-Em 20/11/2026, a tabela do Google lista entrada e saída gratuitas para Gemini 2.5 Flash na modalidade padrão. O Google anunciou redirecionamento desse identificador para Gemini 3.5 Flash-Lite a partir de 01/12/2026. Confira o modelo e a cota do projeto ao reproduzir o experimento. O campo `LLM_MODEL` permite escolher explicitamente o modelo. [Preços e disponibilidade](https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash)
+O padrão provisório é `gemini-3.5-flash-lite`. Esse modelo produziu todas as 27 amostras do experimento principal. A disponibilidade e a cota dependem do projeto Gemini. O campo `LLM_MODEL` permite selecionar o modelo. A CLI pede a versão de prompt quando ela é omitida em `generate`; a escolha de um padrão único aguarda revisão.
 
 ## Uso
 
-A [revisão v2.2](REVISAO_V2_2.md) reúne as sete novas condições de teste, os comandos de reprodução, os JSONs reais e a recomendação provisória sobre a versão padrão.
+A [revisão v2.2](REVISAO_V2_2.md) preserva as condições e conclusões daquela rodada. A decisão proposta após comparar as quatro versões está nas [notas consolidadas](PROMPT_ENGINEERING_NOTES.md).
 
 Para reproduzir os experimentos registrados, use `LLM_MODEL=gemini-3.5-flash-lite` no arquivo local ou defina a variável no PowerShell. Neste projeto, a API recusou o 2.5 Flash para novos usuários (404) e o 3.8 Flash retornou 503. Os JSONs identificam o modelo efetivamente solicitado em cada chamada.
 

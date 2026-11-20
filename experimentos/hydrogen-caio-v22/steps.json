@@ -1,0 +1,50 @@
+{
+  "tipo": "steps",
+  "modelo": "gemini-4-hydrogen",
+  "configuracao": {
+    "maxOutputTokens": 1400,
+    "thinkingConfig": {
+      "thinkingLevel": "LOW"
+    },
+    "responseMimeType": "application/json"
+  },
+  "timestamp": "2026-11-20T21:56:01.903530+00:00",
+  "perfil": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "versao": "v2.2",
+  "http": 200,
+  "uso": {
+    "promptTokenCount": 655,
+    "candidatesTokenCount": 382,
+    "totalTokenCount": 2055,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 655
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 382
+      }
+    ],
+    "thoughtsTokenCount": 1018,
+    "serviceTier": "standard"
+  },
+  "fim": "MAX_TOKENS",
+  "modelo_retornado": "gemini-4-hydrogen",
+  "response_id": "8sEAa7C_EuqzxdIP6Mqc8Q8",
+  "resposta": "{\n  \"steps\": [\n    {\n      \"number\": 1,\n      \"action\": \"Controle: mesma rede (mesmo SSID) e mesmo local (sala). Variável: dispositivo cliente. Conecte um segundo aparelho à mesma rede e teste a estabilidade na sala por alguns minutos. Se não houver segundo aparelho, registre a limitação.\",\n      \"expected_result\": \"O segundo aparelho mantém a conexão estável na sala. Se funcionar, o problema está isolado no celular original (relatar em quais aparelhos ocorreu).\",\n      \"if_it_fails\": \"Se o segundo aparelho também perder a conexão na sala, a falha é de cobertura/interferência no ambiente; relate em quais aparelhos ocorreu e siga para o próximo passo.\"\n    },\n    {\n      \"number\": 2,\n      \"action\": \"Controle: mesmo local (sala) e mesmo(s) aparelho(s). Variável: banda de frequência (2,4 GHz vs 5 GHz), caso o roteador disponibilize ambas. Conecte na banda alternativa e observe a estabilidade.\",\n      \"expected_result\": \"A conexão estabiliza na banda alternativa (ex.: 2,4 GHz por maior alcance). Se funcionar, utilize essa banda na sala.\",\n      \"if_it_fails\": \"Se a queda persistir em ambas as bandas ou se houver apenas uma banda disponível, encerre os testes e escale com os resultados.\"\n    }\n  ],\n  \"estimated_time\": \"5 a 10 minutos\",\n  \"escalation_criteria\": [\n    \"Queda confirmada em mais de um aparelho na sala, mesmo após testar banda alternativa (quando disponível).\",\n    \"Ausência de segundo aparelho para comparação, com persistência da falha na sala.\"",
+  "erro": "Resposta incompleta"
+}

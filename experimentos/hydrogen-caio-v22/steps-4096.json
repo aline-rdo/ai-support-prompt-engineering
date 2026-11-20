@@ -1,0 +1,37 @@
+{
+  "tipo": "steps",
+  "modelo": "gemini-4-hydrogen",
+  "perfil": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "versao": "v2.2",
+  "configuracao": {
+    "maxOutputTokens": 4096,
+    "thinkingConfig": {
+      "thinkingLevel": "LOW"
+    },
+    "responseMimeType": "application/json"
+  },
+  "timestamp": "2026-11-20T21:59:44.723852+00:00",
+  "cache": false,
+  "retries": 0,
+  "reparos": 0,
+  "chamadas": 1,
+  "erro_cliente": "ReadTimeout",
+  "timeout_segundos": 120,
+  "http": null,
+  "fim": null,
+  "uso": null,
+  "resposta": null,
+  "output": null,
+  "evaluation": null
+}
