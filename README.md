@@ -24,6 +24,8 @@ Em 20/11/2026, a tabela do Google lista entrada e saída gratuitas para Gemini 2
 
 ## Uso
 
+A [revisão v2.2](REVISAO_V2_2.md) reúne as sete novas condições de teste, os comandos de reprodução, os JSONs reais e a recomendação provisória sobre a versão padrão.
+
 Para reproduzir os experimentos registrados, use `LLM_MODEL=gemini-3.5-flash-lite` no arquivo local ou defina a variável no PowerShell. Neste projeto, a API recusou o 2.5 Flash para novos usuários (404) e o 3.8 Flash retornou 503. Os JSONs identificam o modelo efetivamente solicitado em cada chamada.
 
 ```powershell

@@ -1,0 +1,67 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "diagnosis",
+  "prompt_version": "v2.2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "f853f97cb84048ecb34e47b36444255a",
+  "timestamp": "2026-11-20T21:30:21.996181+00:00",
+  "customer_id": "c1",
+  "cache_key": "55ac27a4971b76ed494867383ac9fd2a6b4d573c97714734a0504176d3ff449f",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "9c6a6307fcee4b8c9dd0e5821796e295",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "A falha na conexão está relacionada a interferência ou alcance do sinal no local da sala",
+        "likelihood": "moderada",
+        "supporting_evidence": [
+          "O celular perde a conexão na sala",
+          "Perto do roteador funciona"
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "O celular perde a conexão na sala",
+      "Perto do roteador funciona",
+      "Ainda não testou outro aparelho"
+    ],
+    "missing_information": [
+      "Comportamento de um segundo aparelho na mesma sala"
+    ],
+    "probable_conclusion": "Se outro aparelho perder a conexão na sala, o indicativo aponta para uma questão de alcance ou barreira do local. Se o segundo aparelho funcionar normalmente na sala, o indicativo aponta para uma questão específica do primeiro celular.",
+    "confidence": "moderada"
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 555,
+      "candidatesTokenCount": 233,
+      "totalTokenCount": 788,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 555
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1681
+}

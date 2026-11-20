@@ -1,0 +1,54 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "questions",
+  "prompt_version": "v2.2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "1ecc88ef70434e919f919eed89c10808",
+  "timestamp": "2026-11-20T21:30:25.501720+00:00",
+  "customer_id": "c1",
+  "cache_key": "aaee17ffcbe23f7847cc8e15b69cde3a34aa6793732c123dfcd044aa42ccdc60",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "9c6a6307fcee4b8c9dd0e5821796e295",
+  "output": {
+    "questions": [
+      {
+        "priority": 1,
+        "question": "Você consegue testar se outro aparelho, como um notebook ou outro celular, também perde a conexão na sala?",
+        "why_needed": "Identificar se o problema ocorre em um único dispositivo ou na rede de forma geral."
+      }
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 468,
+      "candidatesTokenCount": 59,
+      "totalTokenCount": 527,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 468
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1289
+}

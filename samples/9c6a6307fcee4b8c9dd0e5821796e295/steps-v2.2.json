@@ -1,0 +1,66 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "steps",
+  "prompt_version": "v2.2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "e9fb886a19164981bd9f9310665e259e",
+  "timestamp": "2026-11-20T21:30:23.680713+00:00",
+  "customer_id": "c1",
+  "cache_key": "0801cc39cf32d2cf096780e66e5e30bcf21d6f503649a02c001209088cb500f7",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "9c6a6307fcee4b8c9dd0e5821796e295",
+  "output": {
+    "steps": [
+      {
+        "number": 1,
+        "action": "Pegue outro celular na sua casa, fique no mesmo lugar da sala onde o seu celular perde a conexão e tente acessar a internet nele.",
+        "expected_result": "Se o segundo celular funcionar bem, o problema é apenas no seu aparelho. Se ele também falhar, o sinal do Wi-Fi não chega bem nessa sala.",
+        "if_it_fails": "Se os dois celulares ficarem sem internet na sala, vá para o passo seguinte."
+      },
+      {
+        "number": 2,
+        "action": "Chegue mais perto do roteador com o seu celular e veja se a internet volta a funcionar.",
+        "expected_result": "Se a internet funcionar perto do roteador, significa que o sinal fraco na sala está impedindo a conexão.",
+        "if_it_fails": "Se a internet continuar caindo mesmo perto do roteador, anote esse comportamento para a troca de atendimento."
+      }
+    ],
+    "estimated_time": "5 minutos",
+    "escalation_criteria": [
+      "A internet continuar caindo mesmo perto do roteador",
+      "O segundo aparelho também apresentar falha na sala"
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 565,
+      "candidatesTokenCount": 283,
+      "totalTokenCount": 848,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 565
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1811
+}

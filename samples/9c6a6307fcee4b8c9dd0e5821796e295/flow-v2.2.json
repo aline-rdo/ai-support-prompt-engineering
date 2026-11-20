@@ -1,0 +1,62 @@
+{
+  "customer": {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "flow",
+  "prompt_version": "v2.2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "554389c6937a42faa1d4c83f23f2222b",
+  "timestamp": "2026-11-20T21:30:26.819374+00:00",
+  "customer_id": "c1",
+  "cache_key": "39368a33a05e93672f0fba7f33bc4b0d93d55b88617f3753d7e5f6e8fb48c82a",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "9c6a6307fcee4b8c9dd0e5821796e295",
+  "output": {
+    "ascii_flowchart": "[D1] Chegue mais perto do roteador e veja se a internet volta. A internet voltou?\n  SIM -> A distância gera barreiras físicas que enfraquecem o sinal do Wi-Fi na sala.\n  NÃO -> [D2] Conecte outro celular na mesma rede na sala. O segundo celular também falha?\n    SIM -> Pode ser uma falha geral no sinal do Wi-Fi ou no roteador.\n    NÃO -> O problema parece ser apenas com o primeiro celular.",
+    "decision_nodes": [
+      {
+        "id": "D1",
+        "question": "Chegue mais perto do roteador e veja se a internet volta. A internet voltou?",
+        "yes": "A distância gera barreiras físicas que enfraquecem o sinal do Wi-Fi na sala.",
+        "no": "D2"
+      },
+      {
+        "id": "D2",
+        "question": "Conecte outro celular na mesma rede na sala. O segundo celular também falha?",
+        "yes": "Pode ser uma falha geral no sinal do Wi-Fi ou no roteador.",
+        "no": "O problema parece ser apenas com o primeiro celular."
+      }
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 563,
+      "candidatesTokenCount": 286,
+      "totalTokenCount": 849,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 563
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1735
+}

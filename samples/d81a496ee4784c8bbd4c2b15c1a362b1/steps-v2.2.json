@@ -1,0 +1,60 @@
+{
+  "customer": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "steps",
+  "prompt_version": "v2.2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "61bc38ecd012424fb3afd71640bed2d3",
+  "timestamp": "2026-11-20T21:30:30.569248+00:00",
+  "customer_id": "c2",
+  "cache_key": "0ac169f9c1fb922876a1629d4da2458b386237bf5ba57d1d1822cdeee94af070",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "d81a496ee4784c8bbd4c2b15c1a362b1",
+  "output": {
+    "steps": [
+      {
+        "number": 1,
+        "action": "Isolar a variável de hardware testando com um segundo dispositivo na mesma localização (sala) e na mesma rede sem fio para isolar atenuação de sinal versus falha no rádio do cliente.",
+        "expected_result": "Se o segundo dispositivo mantiver a estabilidade, a falha reside no adaptador Wi-Fi do primeiro celular. Se ambos falharem, prossiga para a verificação de interferência física ou atenuação do sinal.",
+        "if_it_fails": "Se a instabilidade persistir em ambos os dispositivos na sala, altere a frequência do canal do ponto de acesso (2.4GHz para 5GHz ou vice-versa) para mitigar saturação do espectro."
+      }
+    ],
+    "estimated_time": "5 minutos",
+    "escalation_criteria": [
+      "Persistência da queda de conexão em múltiplos dispositivos na mesma zona de cobertura após a troca de canal do rádio.",
+      "Evidência de degradação física do sinal (RSSI abaixo de -75 dBm) em linha de visada direta sem obstáculos."
+    ]
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 566,
+      "candidatesTokenCount": 263,
+      "totalTokenCount": 829,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 566
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 1684
+}

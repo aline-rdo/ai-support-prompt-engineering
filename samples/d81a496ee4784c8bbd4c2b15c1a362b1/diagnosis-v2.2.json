@@ -1,0 +1,76 @@
+{
+  "customer": {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  "ticket": {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  "content_type": "diagnosis",
+  "prompt_version": "v2.2",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 4096
+  },
+  "id": "d4ce22be2d7e4d68bf8d0a2ed7282da0",
+  "timestamp": "2026-11-20T21:30:28.564558+00:00",
+  "customer_id": "c2",
+  "cache_key": "8ad1d3f5db4fb7b0494c024f0cfd5231453742a29b5897ad044ac78df017ec98",
+  "cache_mode": "no-cache",
+  "cache_hit": false,
+  "comparison_id": "d81a496ee4784c8bbd4c2b15c1a362b1",
+  "output": {
+    "hypotheses": [
+      {
+        "description": "Atenuação de sinal por barreira física ou distância entre o dispositivo e o ponto de acesso na sala.",
+        "likelihood": "moderada",
+        "supporting_evidence": [
+          "O celular perde a conexão na sala",
+          "Perto do roteador funciona"
+        ]
+      },
+      {
+        "description": "Anomalia na pilha de rede ou no enlace Wi-Fi específica do sistema operacional do celular.",
+        "likelihood": "baixa",
+        "supporting_evidence": [
+          "O celular perde a conexão na sala",
+          "Ainda não testei outro aparelho"
+        ]
+      }
+    ],
+    "observed_evidence": [
+      "O celular perde a conexão na sala",
+      "Perto do roteador funciona",
+      "Ainda não testei outro aparelho"
+    ],
+    "missing_information": [
+      "Comportamento de um segundo dispositivo na mesma localização",
+      "Comportamento do mesmo dispositivo em outra frequência de rádio"
+    ],
+    "probable_conclusion": "Execute o teste de isolamento utilizando um segundo aparelho na mesma sala e conectada à mesma rede. Caso o segundo aparelho também perca a conexão, a variável limitante é o posicionamento ou o meio de propagação do sinal; caso o segundo aparelho mantenha a estabilidade, a variável limitante é o primeiro dispositivo.",
+    "confidence": "moderada"
+  },
+  "evaluation": null,
+  "uso": [
+    {
+      "promptTokenCount": 556,
+      "candidatesTokenCount": 330,
+      "totalTokenCount": 886,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 556
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "latencia_ms": 2001
+}
