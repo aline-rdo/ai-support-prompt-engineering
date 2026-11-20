@@ -37,7 +37,20 @@
       }
     ]
   },
-  "evaluation": null,
+  "evaluation": {
+    "clarity": {
+      "score": 2,
+      "justification": "O texto truncado prejudica a leitura. O ramo negativo do desenho sugere cabo ou outro cômodo, enquanto o nó descreve um teste em outro cômodo."
+    },
+    "customer_fit": {
+      "score": 2,
+      "justification": "A orientação é impraticável. A analogia da porta fechada não resolve o problema de execução."
+    },
+    "actionability": {
+      "score": 2,
+      "justification": "A sugestão presume um recurso disponível para o celular; além disso, a pergunta inicial já foi respondida pelo ticket."
+    }
+  },
   "uso": [
     {
       "promptTokenCount": 400,

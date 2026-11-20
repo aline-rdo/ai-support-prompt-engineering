@@ -53,7 +53,20 @@
       "Presença de barreiras físicas muito densas (como paredes de concreto espessas ou espelhos grandes) entre a sala e o roteador"
     ]
   },
-  "evaluation": null,
+  "evaluation": {
+    "clarity": {
+      "score": 4,
+      "justification": "A condição é legível, mas a sequência não diz como prosseguir quando o celular funciona perto, exatamente o caso relatado."
+    },
+    "customer_fit": {
+      "score": 3,
+      "justification": "É uma expressão interna do suporte. O terceiro passo compensa em parte ao dar exemplos de aparelhos comuns."
+    },
+    "actionability": {
+      "score": 3,
+      "justification": "É a ação mais útil e está ensinada. Porém, vem após repetir a aproximação e reiniciar a rede. No percurso compatível com o relato, Rosa nem chega a este passo pela condição escrita."
+    }
+  },
   "uso": [
     {
       "promptTokenCount": 204,

@@ -43,7 +43,20 @@
       }
     ]
   },
-  "evaluation": null,
+  "evaluation": {
+    "clarity": {
+      "score": 3,
+      "justification": "A pergunta existe nos nós; o desenho chega ao fim sem mostrar os destinos correspondentes aos dois resultados."
+    },
+    "customer_fit": {
+      "score": 3,
+      "justification": "Essa instrução pode ser lida ao telefone. Os destinos técnicos como problema_roteador precisam ser traduzidos pelo atendente."
+    },
+    "actionability": {
+      "score": 3,
+      "justification": "O desenho encerra logo após testar. O nó d2 distingue os resultados, mas atribui o problema ao roteador ou celular sem orientar o próximo teste."
+    }
+  },
   "uso": [
     {
       "promptTokenCount": 199,

@@ -50,7 +50,20 @@
     "probable_conclusion": "O problema parece ser uma limitacao de alcance ou barreira de sinal entre o roteador e o comodo (sala), causando a perda de conexao a distancia.",
     "confidence": "media"
   },
-  "evaluation": null,
+  "evaluation": {
+    "clarity": {
+      "score": 4,
+      "justification": "A evidência é curta e a conclusão é provisória. A hipótese de alta probabilidade agrupa alcance e interferência, que o relato não distingue."
+    },
+    "customer_fit": {
+      "score": 3,
+      "justification": "A expressão é relativamente simples, mas falta explicar por telefone como o sinal pode variar entre os dois locais."
+    },
+    "actionability": {
+      "score": 3,
+      "justification": "Lista dados a coletar sem priorizar o teste que melhor separaria aparelho e ambiente."
+    }
+  },
   "uso": [
     {
       "promptTokenCount": 205,

@@ -1,20 +1,30 @@
 # Experimento de atendimento técnico
 
-## Consolidação para aprovação
+## Resumo executivo
 
-O objetivo foi descobrir quais instruções ajudam o atendente a passar do relato para um teste verificável, respeitando a experiência do cliente e o canal. O modelo provisório é Gemini 3.5 Flash-Lite. Os números abaixo são propostas de leitura das respostas, na ordem **clareza / adequação ao nível do cliente / acionabilidade**, de 1 a 5. Cada célula abre o registro JSON avaliado. Os seis primeiros casos usam o mesmo ticket de Wi-Fi. O último usa o aplicativo que fecha. Para aprovar ou corrigir uma nota, identifique o caso, a versão e o critério.
+O Gemini 3.5 Flash-Lite produziu 27 respostas completas nos experimentos de prompt. Para Rosa, a v2 encurtou quatro perguntas para uma, mas a pergunta curta solicita o resultado de um teste que ela ainda não fez. A v2.1 transformou essa dúvida em um pedido de teste e produziu um fluxo cujos destinos coincidiam com os nós. A v2.2 melhorou o diagnóstico de Rosa ao explicar os dois possíveis resultados do teste; o fluxo voltou a começar por uma condição já conhecida.
+
+Para Caio, uma instrução mais detalhada não impediu conclusões sem evidência. A v2.1 atribuiu alta probabilidade a uma banda desconhecida. A v2.2 deixou de fazer essa atribuição no diagnóstico, mas recomendou mudar a frequência do ponto de acesso sem explicar a reversão nos passos. Essas falhas pesam na decisão de uso porque alguém pode executar a orientação.
+
+**A CLI mantém a seleção explícita de versão.** V1 continua como candidata a padrão, pendente de aprovação. A candidata aprovou as 24 avaliações da comparação obrigatória de Rosa. As notas das demais amostras continuam provisórias. [Revisão humana, justificativas e registros integrais](REVISAO_HUMANA_ROSA.md).
+
+## Matriz das quatro versões
+
+As quatro primeiras linhas nas colunas v1 e v2 contêm notas aprovadas. As demais células com amostras contêm propostas.
+
+O objetivo foi descobrir quais instruções ajudam o atendente a passar do relato para um teste verificável, respeitando a experiência do cliente e o canal. O modelo provisório é Gemini 3.5 Flash-Lite. Os números aparecem na ordem **clareza / adequação ao nível do cliente / acionabilidade**, de 1 a 5. Cada célula abre o registro JSON avaliado. Os seis primeiros casos usam o mesmo ticket de Wi-Fi. O último usa o aplicativo que fecha.
 
 | Caso | v1 | v2 | v2.1 | v2.2 |
 |---|---|---|---|---|
 | Rosa · diagnóstico | [4/3/3](samples/51c126cfcbaa47e28c5274008da4dbdb/diagnosis-v1.json) | [4/4/4](samples/51c126cfcbaa47e28c5274008da4dbdb/diagnosis-v2.json) | [3/4/3](samples/be2ff482e488422b970aa90ef9527c49/diagnosis-v2.1.json) | [5/4/4](samples/9c6a6307fcee4b8c9dd0e5821796e295/diagnosis-v2.2.json) |
-| Rosa · passos | [4/3/4](samples/51c126cfcbaa47e28c5274008da4dbdb/steps-v1.json) | [4/5/3](samples/51c126cfcbaa47e28c5274008da4dbdb/steps-v2.json) | [3/3/2](samples/be2ff482e488422b970aa90ef9527c49/steps-v2.1.json) | [4/4/3](samples/9c6a6307fcee4b8c9dd0e5821796e295/steps-v2.2.json) |
-| Rosa · perguntas | [4/4/4](samples/51c126cfcbaa47e28c5274008da4dbdb/questions-v1.json) | [5/4/4](samples/51c126cfcbaa47e28c5274008da4dbdb/questions-v2.json) | [5/5/5](samples/be2ff482e488422b970aa90ef9527c49/questions-v2.1.json) | [5/5/5](samples/9c6a6307fcee4b8c9dd0e5821796e295/questions-v2.2.json) |
+| Rosa · passos | [4/3/3](samples/51c126cfcbaa47e28c5274008da4dbdb/steps-v1.json) | [4/4/3](samples/51c126cfcbaa47e28c5274008da4dbdb/steps-v2.json) | [3/3/2](samples/be2ff482e488422b970aa90ef9527c49/steps-v2.1.json) | [4/4/3](samples/9c6a6307fcee4b8c9dd0e5821796e295/steps-v2.2.json) |
+| Rosa · perguntas | [4/4/4](samples/51c126cfcbaa47e28c5274008da4dbdb/questions-v1.json) | [5/4/3](samples/51c126cfcbaa47e28c5274008da4dbdb/questions-v2.json) | [5/5/5](samples/be2ff482e488422b970aa90ef9527c49/questions-v2.1.json) | [5/5/5](samples/9c6a6307fcee4b8c9dd0e5821796e295/questions-v2.2.json) |
 | Rosa · fluxo | [3/3/3](samples/51c126cfcbaa47e28c5274008da4dbdb/flow-v1.json) | [2/2/2](samples/51c126cfcbaa47e28c5274008da4dbdb/flow-v2.json) | [4/4/3](samples/be2ff482e488422b970aa90ef9527c49/flow-v2.1.json) | [3/3/2](samples/9c6a6307fcee4b8c9dd0e5821796e295/flow-v2.2.json) |
 | Caio · diagnóstico | [4/4/4](samples/bbbcd0edf722441290b24a311d276cdf/diagnosis-v1.json) | [3/4/4](samples/bbbcd0edf722441290b24a311d276cdf/diagnosis-v2.json) | [3/4/3](samples/604bd2f9a9474fe0ac7bea635faa5205/diagnosis-v2.1.json) | [3/3/4](samples/d81a496ee4784c8bbd4c2b15c1a362b1/diagnosis-v2.2.json) |
 | Caio · passos | [4/4/4](samples/6d88a80272aa42e9810e17645e9c3331/steps-v1.json) | [4/4/3](samples/6d88a80272aa42e9810e17645e9c3331/steps-v2.json) | [3/3/2](samples/604bd2f9a9474fe0ac7bea635faa5205/steps-v2.1.json) | [3/3/2](samples/d81a496ee4784c8bbd4c2b15c1a362b1/steps-v2.2.json) |
 | Rosa · perguntas sobre o aplicativo | Sem amostra | [5/5/4](samples/20b06ab06ac749d08a12397fc5f8f683/questions-v2.json) | [5/5/4](samples/20b06ab06ac749d08a12397fc5f8f683/questions-v2.1.json) | [5/4/4](samples/96919e92d9fb424cb1ae7a8055e8c78c/questions-v2.2.json) |
 
-As justificativas individuais de v1 e v2 no Wi-Fi estão nas tabelas de Rosa e Caio mais abaixo. A [revisão v2.1](REVISAO_V2_1.md) justifica suas sete linhas de avaliação e as duas respostas sobre o aplicativo daquela rodada. A [revisão v2.2](REVISAO_V2_2.md) fundamenta os sete julgamentos novos. Os 27 campos de avaliação aguardam revisão humana.
+As justificativas de Rosa estão no relatório aprovado e as propostas de Caio, na tabela abaixo. A [revisão v2.1](REVISAO_V2_1.md) justifica suas sete linhas de avaliação e as duas respostas sobre o aplicativo daquela rodada. A [revisão v2.2](REVISAO_V2_2.md) fundamenta os sete julgamentos novos. Oito registros têm avaliação definitiva; nos outros 19 o campo evaluation permanece nulo.
 
 ### Decisão proposta sobre o prompt
 
@@ -26,17 +36,22 @@ As justificativas individuais de v1 e v2 no Wi-Fi estão nas tabelas de Rosa e C
 
 A escolha de v1 é uma ponderação de gravidade para apoio humano, não uma propriedade garantida do modelo. A CLI continua aceitando as quatro versões explicitamente. O desenho não foi cego, os casos são poucos, as revisões mais recentes foram geradas em outros momentos e cada condição tem uma única resposta. O segundo ticket cobre apenas perguntas. A comparação entre modelos, com configurações de inferência diferentes, está no [apêndice Hydrogen](experimentos/hydrogen-caio-v22/README.md).
 
-### Hipóteses das iterações
+### Alterações entre versões e justificativas
 
-A v1 forneceu uma tarefa curta, perfil e contrato JSON. A v2 acrescentou persona, instruções de canal e decomposição do diagnóstico. Isso aproximou os passos de Rosa da linguagem falada, mas o fluxo perdeu consistência. Na v2.1, “dê a ela no máximo probabilidade moderada” tentou calibrar hipóteses com dados ausentes e a cópia literal dos destinos tentou alinhar as duas representações. O desenho de Rosa melhorou; a hipótese de 5 GHz de Caio continuou com probabilidade alta. Na v2.2, “Mantenha as condições conhecidas e varie uma coisa” buscou tornar o teste reproduzível. Rosa começou a testar um segundo celular; a instrução posterior ainda repetiu o teste perto do roteador. A validação JSON e as verificações estruturais não corrigiram respostas para a avaliação.
+| Versão | Alteração | Hipótese testada | Resultado observado |
+|---|---|---|---|
+| v1 | Persona breve, perfil, tarefa e formato JSON | Uma referência simples permite verificar quanto o contexto por si só ajuda. | Rosa recebe o teste com outro aparelho, mas depois de um reinício. |
+| v2 | Regras por nível, estilo e canal; decomposição explícita do diagnóstico | Dar instruções de linguagem e evidência deve melhorar a orientação falada e a triagem. | A linguagem fica mais familiar para Rosa. O fluxo apresenta texto truncado e destinos divergentes. |
+| v2.1 | Limite de confiança quando faltam dados; cópia literal de cada destino no fluxo | Esses ajustes devem conter inferências e alinhar as duas representações. | O desenho de Rosa corresponde aos nós. A hipótese de 5 GHz de Caio continua com probabilidade alta. |
+| v2.2 | Variar uma condição por teste, interpretar ambos os resultados e ensinar a reversão de ajustes | Tornar os passos reproduzíveis deve reduzir intervenções prematuras. | Rosa começa pelo segundo aparelho. Caio ainda recebe uma mudança de banda sem método de reversão. |
 
 ## Registro da comparação original entre v1 e v2
 
-## Desenho
+### Desenho
 
 O ticket t1 informa que o celular perde o Wi-Fi na sala, funciona perto do roteador e ainda é o único aparelho testado. O primeiro cenário usa Rosa (leiga, didática, telefone) nos quatro tipos de conteúdo. O segundo usa Caio (avançado, direto, chat) em diagnóstico e passos. Cada par mantém perfil, relato, tipo, Gemini 3.5 Flash-Lite, temperatura 0,3 e limite de 4096 tokens. Houve uma geração por combinação, sem cache. O Gemini 2.5 Flash recusou novos usuários com HTTP 404 e o 3.8 Flash retornou 503. Para reproduzir no PowerShell, defina `$env:LLM_MODEL = "gemini-3.5-flash-lite"` antes dos comandos de comparação do README.
 
-## O que mudou no prompt
+### Técnicas presentes nos prompts originais
 
 | Elemento | v1 | v2 e motivo |
 |---|---|---|
@@ -48,30 +63,21 @@ O ticket t1 informa que o celular perde o Wi-Fi na sala, funciona perto do rotea
 
 Manter o contrato JSON permitiu validar os campos e comparar as respostas com a mesma rubrica. A temperatura baixa reduz uma fonte de variação e o cache evita repetir chamadas fora da comparação. Uma saída válida pode conter erros de conteúdo, como mostram os fluxos.
 
-## Avaliações propostas para revisão
+## Comparação principal aprovada · Rosa, telefone, Wi-Fi
 
-Escala de 1 (insuficiente) a 5 (excelente). Cada célula apresenta nota e justificativa. Os exemplos entre aspas reproduzem trechos das saídas, inclusive grafia. Os campos de avaliação no histórico e nos arquivos de amostra aguardam a decisão da candidata.
+Cada versão tem quatro respostas, três critérios por resposta e até cinco pontos por critério. A soma é descritiva deste cenário.
 
-### Rosa · telefone
+| Tarefa | v1 (até 15) | v2 (até 15) | Diferença observada |
+|---|---:|---:|---|
+| Diagnóstico | 10 | 12 | A v2 identifica a lacuna do segundo aparelho e oferece uma analogia familiar. |
+| Passos | 10 | 11 | A v2 melhora a linguagem falada, mas deixa o teste com outro telefone para depois do reinício. A acionabilidade é 3 nas duas versões. |
+| Perguntas | 12 | 12 | A v2 ganha em clareza ao concentrar a dúvida em uma frase. Perde em acionabilidade (4 → 3) ao pedir um resultado que Rosa já informou desconhecer. |
+| Fluxograma | 9 | 6 | A v1 já omite uma decisão no desenho. A v2 introduz texto truncado e destinos divergentes para o mesmo ramo. |
+| **Total aprovado** | **41/60** | **41/60** | Os ganhos de personalização coexistem com regressões na utilidade das orientações e na consistência do fluxo. |
 
-[Respostas completas e relatório do cenário](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md)
+As três notas e justificativas aprovadas por resposta estão no [relatório comparativo exportado](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md); o [registro da revisão humana](REVISAO_HUMANA_ROSA.md) apresenta também os trechos literais utilizados. O empate não estabelece equivalência geral dos prompts nem define uma versão padrão.
 
-| Tarefa | Critério | v1 | v2 |
-|---|---|---|---|
-| Diagnóstico | Clareza | **4**. “Perto do roteador funciona” sustenta a conclusão provisória. A ausência de acentos dificulta a leitura. | **4**. Separa observações e lacunas. “Obstaculos fisicos […] bloqueiam” soa mais categórico que a evidência. |
-| Diagnóstico | Adequação | **3**. “limitacao de alcance” é compreensível, mas pouco explicativa para uma ligação didática. | **4**. A comparação com “a luz de uma lampada” torna a hipótese concreta, embora simplifique a propagação do sinal. |
-| Diagnóstico | Acionabilidade | **3**. Pede “Modelo do roteador e operadora” antes de orientar o teste comparativo. | **4**. “Se outros aparelhos tambem perdem o sinal na sala” aponta a verificação de maior valor. |
-| Passos | Clareza | **4**. Há sequência e resultados esperados, mas “aproxime-se do roteador com o celular na sala” deixa ambíguo onde ficar. | **4**. “por dez segundos e volte a ligar” é claro. “o sinal de internet será atualizado” não descreve um resultado observável. |
-| Passos | Adequação | **3**. “realizar o escalonamento” é vocabulário de equipe de suporte. | **5**. “caixa do Wi-Fi” e a comparação com reiniciar a televisão funcionam em voz alta. |
-| Passos | Acionabilidade | **4**. Inclui “usando um segundo aparelho” como passo executável, embora reinicie a rede antes desse teste. | **3**. O segundo telefone aparece só como alternativa e a resposta permite escalar logo após reiniciar. |
-| Perguntas | Clareza | **4**. A primeira pergunta indica local e dispositivo; é longa para uma ligação. | **5**. “O problema acontece com outros aparelhos na sala?” concentra a dúvida em uma frase. |
-| Perguntas | Adequação | **4**. “como um notebook ou outro celular” ajuda Rosa a escolher um aparelho. | **4**. É curta e falável. Falta um exemplo para quem ainda não tentou o teste. |
-| Perguntas | Acionabilidade | **4**. “Você poderia testar” orienta a ação, mas luzes e reinício são prematuros antes da primeira resposta. | **4**. Isola a dúvida prioritária, embora permita que Rosa apenas responda “não sei”. |
-| Fluxo | Clareza | **3**. O desenho é legível, mas a pergunta “Outro aparelho apresenta o mesmo problema?” só existe na lista. | **2**. O trecho “do roteia” está truncado e “Usar cabo” diverge do destino descrito no JSON. |
-| Fluxo | Adequação | **3**. “Testar outro celular” funciona por telefone. Rótulos como “sinal_fraco” exigem mediação. | **2**. A analogia da “porta fechada” ajuda, mas “afaste barreiras físicas como paredes” é impraticável. |
-| Fluxo | Acionabilidade | **3**. Prevê testar outro aparelho, mas o desenho termina antes de orientar a decisão pelo resultado. | **2**. Repete uma condição já conhecida e o ramo negativo oferece destinos diferentes no desenho e no texto. |
-
-### Caio · chat
+### Caio · chat · avaliações provisórias
 
 [Diagnósticos completos](samples/bbbcd0edf722441290b24a311d276cdf/relatorio.md) e [passos completos](samples/6d88a80272aa42e9810e17645e9c3331/relatorio.md).
 
@@ -84,7 +90,16 @@ Escala de 1 (insuficiente) a 5 (excelente). Cada célula apresenta nota e justif
 | Passos | Adequação | **4**. “alternar entre 2.4GHz e 5GHz” cabe no chat e no nível técnico. | **4**. A medição de RSSI é pertinente. “isolamento do terminal” torna a instrução mais longa sem acrescentar precisão. |
 | Passos | Acionabilidade | **4**. Testa outro aparelho na mesma posição. O critério “próximo ao roteador” não é verificado nos passos. | **3**. O segundo aparelho é um bom controle. O escalonamento pressupõe alteração de largura de banda sem explicar como testar ou reverter. |
 
-## Interpretação e limites
+## Decisões técnicas e trade-offs
+
+| Decisão | Benefício | Limite observado ou custo |
+|---|---|---|
+| Contrato JSON comum às versões e reparo limitado | Os quatro tipos podem ser exibidos e avaliados pelos mesmos campos; um erro de formato tem uma oportunidade de correção. | Um reparo pode consumir outra chamada. JSON válido aceita orientações contraditórias, como os destinos do fluxo v2. |
+| Usar o modelo para produzir tanto o desenho quanto os nós | Permite avaliar a capacidade de seguir instruções sem retocar os exemplos. | Duas representações podem divergir. A conferência estrutural posterior identifica falhas e preserva a saída recebida. |
+| Histórico em arquivos JSON e cache por entrada, versão e configuração | O avaliador consegue abrir cada registro e conferir a reutilização de uma geração equivalente. | Buscar em arquivos serve para este volume pequeno; as comparações reais exigem chamadas novas e ficam sujeitas à variação do modelo. |
+| Manter a rubrica humana junto ao resultado após aprovação | Vincula a nota à resposta exata, incluindo limites de uso no canal escolhido. | Julgar se uma orientação é executável exige ler a sequência inteira. A revisão dos passos v1 mostrou como um bom passo isolado pode inflar a nota. |
+
+## Limitações metodológicas e conclusões
 
 No cenário de Rosa, a instrução de priorização reduziu quatro perguntas a uma. A v2 melhorou o texto falado dos passos, mas a v1 deu mais destaque ao teste de outro aparelho. No fluxo, a v2 piorou a correspondência entre as duas representações. Para Caio, a v2 acrescentou uma medida útil e atribuiu probabilidade alta a uma banda desconhecida.
 

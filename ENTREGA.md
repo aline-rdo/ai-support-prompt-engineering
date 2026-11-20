@@ -11,7 +11,7 @@
 | Quatro conteúdos distintos | [Geradores](support_assistant/generators.py) e JSONs reais de diagnóstico, passos, perguntas e fluxo. A correção técnica do conteúdo exige revisão humana. |
 | Histórico e cache | Registro local em JSON com horário, perfil, ticket, versão, modelo, saída e avaliação. Escrita atômica, filtros e teste que conta as chamadas ao repetir a entrada. |
 | Comparação controlada | 27 registros Flash-Lite. O [cenário original de Rosa](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md) tem as duas versões no mesmo grupo, com perfil, ticket, modelo e parâmetros equivalentes. |
-| Rubrica fixa e autoavaliação | Três notas e justificativas propostas para cada amostra. A CLI valida e grava a avaliação. **Pendente:** aprovação pela candidata e gravação junto aos resultados. |
+| Rubrica fixa e autoavaliação | **Atendido.** A candidata aprovou 24 notas com justificativas nas oito respostas originais de Rosa; registro por ID no histórico e no [relatório exportado](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md). v1 e v2 somaram 41/60 cada. |
 | Entrega reproduzível | Dependências em requirements.txt, código, README, amostras, notas técnicas e histórico Git. O diretório samples é versionado; o histórico de uso local é privado e começa vazio em uma cópia nova. |
 
 O edital permite ferramentas de IA e exige que a candidata saiba explicar e modificar a solução. Web e deploy são opcionais.
@@ -20,14 +20,21 @@ O edital permite ferramentas de IA e exige que a candidata saiba explicar e modi
 
 - Em uma cópia isolada dos arquivos de entrega com .env de exemplo e sem credencial, `python -m pytest -q` passou nos 27 testes. A CLI retornou 4 itens em customers, 3 em tickets e 0 em history, como esperado em uma instalação nova. Os testes de geração, comparação e avaliação usam mocks.
 - O ambiente virtual de validação já instalado satisfez `pip install --no-index -r requirements.txt`; `pip check` não encontrou dependências quebradas. A geração externa é comprovada pelos registros preservados. Esta auditoria não fez chamadas ao Gemini.
-- As 27 amostras passaram na validação local do contrato JSON, coincidiram integralmente com seus registros locais por ID e mantiveram evaluation nulo. Os links relativos dos documentos foram verificados.
+- As 27 amostras passaram na validação local do contrato JSON, coincidiram integralmente com seus registros locais por ID; oito contêm avaliações aprovadas e 19 continuam com evaluation nulo. Os links relativos dos documentos foram verificados.
 - A inspeção das árvores de todos os commits alcançáveis, conteúdo dos arquivos, mensagens de commit e arquivos de entrega não encontrou a credencial local, padrões comuns de chaves ou arquivos locais indevidos. Essa busca verifica os padrões examinados.
 
-## Antes de publicar
+## Situação após a aprovação da comparação obrigatória
 
-- [ ] Candidata revisar a documentação e as propostas na matriz, corrigindo notas e justificativas por tarefa, critério e versão.
-- [ ] Decidir a versão de prompt para uso padrão após considerar os riscos dos passos e as diferenças por tarefa. O modelo já está configurado; o prompt ainda é selecionado na CLI.
-- [ ] Após aprovação, registrar as notas no histórico e exportar os relatórios avaliados, preservando as respostas originais. Conferir pelo ID os três critérios e justificativas da comparação mínima.
-- [ ] Candidata reproduzir um fluxo e explicar cache, calibração de hipóteses, limites do JSON e decisões de versão na defesa técnica.
-- [ ] Rodar a suíte final e repetir a verificação do índice e do histórico antes da publicação. Manter .env, PDFs do edital, roteiro local, ambientes virtuais e histórico de uso fora do Git.
-- [ ] Definir destino e acesso para a equipe avaliadora. Na consolidação, o repositório local ainda não tem remoto configurado.
+- [x] Registrar as 24 notas e justificativas aprovadas e conferir por ID o histórico, as oito amostras e o relatório.
+- [x] Preservar respostas, versões e metadados; documentar o resultado de 41/60 para cada versão.
+- [x] Manter as demais avaliações como propostas, o Hydrogen como apêndice exploratório e a seleção de versão explícita na CLI.
+- [x] Executar os testes automatizados e verificar o material de entrega.
+
+Os requisitos obrigatórios de implementação, comparação e documentação estão atendidos. Não há requisito técnico do edital pendente antes do frontend.
+
+## Antes da entrega externa
+
+- [ ] Definir o destino e o acesso da equipe avaliadora e disponibilizar o repositório. Essa etapa é necessária para a entrega externa, sem impedir o desenvolvimento local.
+- [ ] A candidata deve estar preparada para reproduzir a CLI e explicar as decisões na defesa. Antes da publicação, repetir as verificações caso o conteúdo do repositório mude.
+
+Uma versão de prompt padrão e a avaliação dos demais cenários são decisões opcionais. A comparação aprovada não depende delas.

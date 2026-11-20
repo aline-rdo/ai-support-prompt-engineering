@@ -35,7 +35,20 @@
       }
     ]
   },
-  "evaluation": null,
+  "evaluation": {
+    "clarity": {
+      "score": 5,
+      "justification": "Uma frase aborda um único sintoma no local certo."
+    },
+    "customer_fit": {
+      "score": 4,
+      "justification": "O motivo é compreensível por telefone. Falta um exemplo do segundo aparelho que Rosa pode usar."
+    },
+    "actionability": {
+      "score": 3,
+      "justification": "A resposta permitiria escolher o próximo ramo, mas o ticket já informa que ela não testou. A formulação pode obter apenas “não sei” e exigir outra intervenção do atendente."
+    }
+  },
   "uso": [
     {
       "promptTokenCount": 392,

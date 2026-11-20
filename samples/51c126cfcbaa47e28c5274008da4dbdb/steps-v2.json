@@ -47,7 +47,20 @@
       "Se outro aparelho também perder a conexão no mesmo local."
     ]
   },
-  "evaluation": null,
+  "evaluation": {
+    "clarity": {
+      "score": 4,
+      "justification": "Os verbos das ações são concretos, mas esse resultado não diz a Rosa o que observar para saber se resolveu."
+    },
+    "customer_fit": {
+      "score": 4,
+      "justification": "A comparação com um aparelho conhecido ajuda por telefone. O termo “aparelho” na transição do celular para o roteador é ambíguo, o que enfraquece a nota máxima."
+    },
+    "actionability": {
+      "score": 3,
+      "justification": "O teste aparece só após o reinício e não orienta como interpretar se apenas um telefone falhar."
+    }
+  },
   "uso": [
     {
       "promptTokenCount": 414,

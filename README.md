@@ -2,6 +2,8 @@
 
 CLI em português que transforma um perfil e um relato de suporte em diagnóstico, passos de resolução, perguntas priorizadas e fluxograma. Cada geração produz um registro JSON. A comparação usa o mesmo cenário nas duas versões e permite à candidata avaliar as respostas lado a lado.
 
+A comparação obrigatória de Rosa foi aprovada pela candidata: v1 e v2 obtiveram **41/60**. Consulte o [relatório com as 24 notas e justificativas](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md).
+
 Para revisar a entrega sem usar uma chave, abra a [matriz de avaliação com os 27 JSONs](PROMPT_ENGINEERING_NOTES.md), o [estudo separado com Hydrogen](experimentos/hydrogen-caio-v22/README.md) e o [checklist de publicação](ENTREGA.md).
 
 ## Instalação no Windows

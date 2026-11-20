@@ -49,7 +49,20 @@
     "probable_conclusion": "O problema parece ser a distancia ou barreiras fisicas enfraquecendo o sinal do Wi-Fi na sala.",
     "confidence": "media"
   },
-  "evaluation": null,
+  "evaluation": {
+    "clarity": {
+      "score": 4,
+      "justification": "A conclusão preserva incerteza, mas a descrição da hipótese já afirma que os obstáculos bloqueiam o sinal."
+    },
+    "customer_fit": {
+      "score": 4,
+      "justification": "A imagem é familiar para Rosa. Pode, contudo, fazê-la tomar uma barreira ainda não observada como causa."
+    },
+    "actionability": {
+      "score": 4,
+      "justification": "Identifica a lacuna decisiva para a triagem. O 4 pressupõe que o atendente converterá a lacuna em teste; para autonomia de Rosa, 3 também seria defensável."
+    }
+  },
   "uso": [
     {
       "promptTokenCount": 420,

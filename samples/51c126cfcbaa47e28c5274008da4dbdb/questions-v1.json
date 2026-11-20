@@ -50,7 +50,20 @@
       }
     ]
   },
-  "evaluation": null,
+  "evaluation": {
+    "clarity": {
+      "score": 4,
+      "justification": "A primeira pergunta identifica o sintoma e o local. As quatro perguntas em sequência exigem atenção durante a ligação."
+    },
+    "customer_fit": {
+      "score": 4,
+      "justification": "Os exemplos ajudam Rosa a escolher o que testar. A pergunta sobre luzes acesas normalmente exige que ela conheça o padrão do roteador."
+    },
+    "actionability": {
+      "score": 4,
+      "justification": "O pedido inicial gera uma ação executável. As questões sobre luzes e reinício poderiam aguardar o resultado do primeiro teste."
+    }
+  },
   "uso": [
     {
       "promptTokenCount": 179,
