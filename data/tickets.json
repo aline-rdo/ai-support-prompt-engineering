@@ -1,0 +1,17 @@
+[
+  {
+    "id": "t1",
+    "title": "Quedas de Wi-Fi",
+    "description": "O celular perde a conexão na sala. Perto do roteador funciona. Ainda não testei outro aparelho."
+  },
+  {
+    "id": "t2",
+    "title": "Aplicativo fecha",
+    "description": "Ao abrir o aplicativo ele fecha."
+  },
+  {
+    "id": "t3",
+    "title": "Sincronização de e-mail",
+    "description": "Desde ontem recebo mensagens no navegador, mas a caixa do telefone continua desatualizada mesmo após reiniciar."
+  }
+]

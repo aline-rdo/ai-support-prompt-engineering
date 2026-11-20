@@ -1,0 +1,30 @@
+[
+  {
+    "id": "c1",
+    "name": "Rosa",
+    "technical_level": "leigo",
+    "communication_style": "didático",
+    "channel": "telefone"
+  },
+  {
+    "id": "c2",
+    "name": "Caio",
+    "technical_level": "avançado",
+    "communication_style": "direto",
+    "channel": "chat"
+  },
+  {
+    "id": "c3",
+    "name": "Lia",
+    "technical_level": "intermediário",
+    "communication_style": "detalhado",
+    "channel": "e-mail"
+  },
+  {
+    "id": "c4",
+    "name": "Rui",
+    "technical_level": "leigo",
+    "communication_style": "direto",
+    "channel": "chat"
+  }
+]

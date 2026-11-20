@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+prompt_desafio_tecnico_ia.md
+Desafio_Tecnico_*.pdf
+.venv/
+__pycache__/
+.pytest_cache/
+data/history/
+.tmp*/
