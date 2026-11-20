@@ -7,6 +7,7 @@ from uuid import uuid4
 
 from .evaluation import CRITERIOS, validar, exportar
 from .gemini import Config
+from .prompts import VERSOES
 from .generators import GERADORES
 from .storage import HISTORICO, catalogo, ler, listar, salvar
 
@@ -24,12 +25,12 @@ def argumentos():
         if nome in ("generate","compare"):
             s.add_argument("--ticket")
         if nome == "generate":
-            s.add_argument("--prompt-version",choices=["v1","v2"])
+            s.add_argument("--prompt-version",choices=VERSOES)
             grupo = s.add_mutually_exclusive_group()
             grupo.add_argument("--no-cache",action="store_true")
             grupo.add_argument("--refresh",action="store_true")
         if nome == "compare":
-            s.add_argument("--versions",nargs=2,choices=["v1","v2"],default=["v1","v2"])
+            s.add_argument("--versions",nargs=2,choices=VERSOES,default=["v1","v2"])
         if nome in ("history","evaluate"):
             s.add_argument("--comparison-id")
         if nome == "history":
@@ -100,7 +101,7 @@ def executar(args):
         grupo, modo = uuid4().hex,"refresh"
         print("Comparação",grupo)
     else:
-        versoes = [args.prompt_version or input("Versão (v1/v2): ").strip()]
+        versoes = [args.prompt_version or input(f"Versão ({'/'.join(VERSOES)}): ").strip()]
         grupo = None
         modo = "refresh" if args.refresh else "no-cache" if args.no_cache else "normal"
     registros = []

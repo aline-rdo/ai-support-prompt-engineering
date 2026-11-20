@@ -23,10 +23,10 @@ def exportar(registros, pasta=None):
             nome = f"{tipo}-{versao}.json"
             salvar(pasta / nome,r)
             linhas.append(f"- [{versao}]({nome})")
-        linhas.extend(["","| Critério | v1 | v2 |","|---|---|---|"])
+        linhas.extend(["","| Critério | " + " | ".join(par) + " |","|" + "---|" * (len(par)+1)])
         for k,titulo in CRITERIOS.items():
             celulas = [titulo]
-            for versao in ("v1","v2"):
+            for versao in par:
                 item = (par.get(versao,{}).get("evaluation") or {}).get(k)
                 celulas.append(f"{item['score']} — {item['justification']}".replace("|","\\|").replace("\n"," ") if item else "Pendente")
             linhas.append("| "+" | ".join(celulas)+" |")
