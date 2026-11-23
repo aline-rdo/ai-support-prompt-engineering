@@ -1,8 +1,7 @@
 .env
 .env.*
 !.env.example
-prompt_desafio_tecnico_ia.md
-Desafio_Tecnico_*.pdf
+/.local/
 .venv/
 __pycache__/
 .pytest_cache/
@@ -16,5 +15,3 @@ Thumbs.db
 *.bak
 *.log
 .streamlit/secrets.toml
-PROMPT_CODEX*.md
-PLANO_QUALIDADE_DESAFIO_IA.md
