@@ -1,4 +1,4 @@
-# Auditoria e checklist antes da publicação
+# Verificação da entrega
 
 ## Requisitos do edital
 
@@ -12,13 +12,13 @@
 | Histórico e cache | Registro local em JSON com horário, perfil, ticket, versão, modelo, saída e avaliação. Escrita atômica, filtros e teste que conta as chamadas ao repetir a entrada. |
 | Comparação controlada | 27 registros Flash-Lite. O [cenário original de Rosa](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md) tem as duas versões no mesmo grupo, com perfil, ticket, modelo e parâmetros equivalentes. |
 | Rubrica fixa e autoavaliação | **Atendido.** A candidata aprovou 24 notas com justificativas nas oito respostas originais de Rosa; registro por ID no histórico e no [relatório exportado](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md). v1 e v2 somaram 41/60 cada. |
-| Entrega reproduzível | Dependências em requirements.txt, código, README, amostras, notas técnicas e histórico Git. O diretório samples é versionado; o histórico de uso local é privado e começa vazio em uma cópia nova. |
+| Entrega reproduzível | O [README](README.md) descreve a instalação da CLI com `requirements.txt` e da interface Streamlit com `requirements-ui.txt`. As amostras acompanham o repositório. O histórico de uso local começa vazio em uma cópia nova. |
 
-O edital permite ferramentas de IA e exige que a candidata saiba explicar e modificar a solução. Web e deploy são opcionais.
+A [interface Streamlit](app.py) usa os mesmos geradores da CLI. Ela permite gerar respostas sob demanda, comparar respostas históricas lado a lado e consultar o histórico. A comparação aprovada de Rosa pode ser consultada localmente sem chave de API.
 
-### Verificações executadas na consolidação
+### Verificações da versão publicada
 
-- Em uma cópia isolada dos arquivos de entrega com .env de exemplo e sem credencial, `python -m pytest -q` passou nos 27 testes. A CLI retornou 4 itens em customers, 3 em tickets e 0 em history, como esperado em uma instalação nova. Os testes de geração, comparação e avaliação usam mocks.
+- Na preparação da publicação, os 29 testes do backend, da CLI e da interface passaram sem chamadas reais ao Gemini. A inicialização do Streamlit também foi verificada em localhost.
 - O ambiente virtual de validação já instalado satisfez `pip install --no-index -r requirements.txt`; `pip check` não encontrou dependências quebradas. A geração externa é comprovada pelos registros preservados. Esta auditoria não fez chamadas ao Gemini.
 - As 27 amostras passaram na validação local do contrato JSON, coincidiram integralmente com seus registros locais por ID; oito contêm avaliações aprovadas e 19 continuam com evaluation nulo. Os links relativos dos documentos foram verificados.
 - A inspeção das árvores de todos os commits alcançáveis, conteúdo dos arquivos, mensagens de commit e arquivos de entrega não encontrou a credencial local, padrões comuns de chaves ou arquivos locais indevidos. Essa busca verifica os padrões examinados.
@@ -30,11 +30,10 @@ O edital permite ferramentas de IA e exige que a candidata saiba explicar e modi
 - [x] Manter as demais avaliações como propostas, o Hydrogen como apêndice exploratório e a seleção de versão explícita na CLI.
 - [x] Executar os testes automatizados e verificar o material de entrega.
 
-Os requisitos obrigatórios de implementação, comparação e documentação estão atendidos. Não há requisito técnico do edital pendente antes do frontend.
+Os requisitos obrigatórios de implementação, comparação e documentação estão atendidos.
 
-## Antes da entrega externa
+## Publicação
 
-- [ ] Definir o destino e o acesso da equipe avaliadora e disponibilizar o repositório. Essa etapa é necessária para a entrega externa, sem impedir o desenvolvimento local.
-- [ ] A candidata deve estar preparada para reproduzir a CLI e explicar as decisões na defesa. Antes da publicação, repetir as verificações caso o conteúdo do repositório mude.
+A entrega foi publicada na branch `main` do [repositório no GitHub](https://github.com/aline-rdo/ai-support-prompt-engineering), inicialmente com visibilidade privada.
 
 Uma versão de prompt padrão e a avaliação dos demais cenários são decisões opcionais. A comparação aprovada não depende delas.

@@ -1,6 +1,6 @@
 # Revisão humana · Atendimento de Rosa por telefone
 
-**Aprovado pela candidata.** A comparação resultou em 41/60 para v1 e 41/60 para v2. As tabelas e os oito registros integrais abaixo contêm as notas definitivas desta comparação. Cada trecho foi conferido no campo `output` do registro. A escala vai de 1 (insuficiente), 2 (fraco), 3 (adequado), 4 (bom) a 5 (excelente).
+**Avaliação aprovada em revisão humana.** A comparação resultou em 41/60 para v1 e 41/60 para v2. As tabelas e os oito registros integrais abaixo contêm as notas definitivas desta comparação. Cada trecho foi conferido no campo `output` do registro. A escala vai de 1 (insuficiente), 2 (fraco), 3 (adequado), 4 (bom) a 5 (excelente).
 
 Rosa informou que o celular perde o Wi-Fi na sala, funciona perto do roteador e ainda é o único aparelho testado. O mesmo Gemini 3.5 Flash-Lite gerou as quatro tarefas em v1 e v2, com temperatura 0,3 e limite de 4.096 tokens. A questão prática é se uma pessoa leiga consegue seguir a orientação ouvindo o atendente.
 
