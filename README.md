@@ -26,6 +26,18 @@ Para gerar conteúdo, crie uma chave no [Google AI Studio](https://aistudio.goog
 
 O padrão provisório é `gemini-3.5-flash-lite`. Esse modelo produziu todas as 27 amostras do experimento principal. A disponibilidade e a cota dependem do projeto Gemini. O campo `LLM_MODEL` permite selecionar o modelo. A CLI pede a versão de prompt quando ela é omitida em `generate`; a escolha de um padrão único aguarda revisão.
 
+## Interface visual opcional
+
+Na raiz do projeto, instale a dependência opcional uma vez com `& .\.venv\Scripts\python.exe -m pip install -r requirements-ui.txt`. Para abrir a interface no Windows, execute:
+
+```powershell
+& .\.venv\Scripts\python.exe -m streamlit run app.py --server.address 127.0.0.1
+```
+
+Abra o endereço local indicado no terminal. Para demonstrar o projeto sem chave, selecione **Comparar prompts** e abra a comparação original de Rosa. Troque o conteúdo para ver cada par de respostas, as notas e as justificativas. O **Histórico** reúne as amostras versionadas e as execuções locais, com preferência pelo registro local quando o ID coincide.
+
+Em **Gerar resposta**, escolha o cliente, o ticket, a versão e o tipo de conteúdo. O botão aciona o mesmo gerador da CLI, que verifica o cache e usa o Gemini quando precisa de uma nova resposta. A chave fica no ambiente do servidor. Para encerrar a interface, pressione Ctrl+C no terminal.
+
 ## Uso
 
 A [revisão v2.2](REVISAO_V2_2.md) preserva as condições e conclusões daquela rodada. A decisão proposta após comparar as quatro versões está nas [notas consolidadas](PROMPT_ENGINEERING_NOTES.md).
