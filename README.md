@@ -1,100 +1,152 @@
-# Assistente de atendimento técnico
+# Assistente de Atendimento Técnico com IA
 
-CLI em português que transforma um perfil e um relato de suporte em diagnóstico, passos de resolução, perguntas priorizadas e fluxograma. Cada geração produz um registro JSON. A comparação usa o mesmo cenário nas duas versões e permite à candidata avaliar as respostas lado a lado.
+## Visão geral
 
-A comparação obrigatória de Rosa foi aprovada pela candidata: v1 e v2 obtiveram **41/60**. Consulte o [relatório com as 24 notas e justificativas](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md).
+A aplicação transforma um relato de suporte em orientações adaptadas ao nível técnico, ao estilo de comunicação e ao canal de atendimento do cliente. A CLI e a interface Streamlit usam os mesmos geradores Python. Para explorar o projeto sem uma chave de API, abra a comparação histórica de Rosa no Streamlit.
 
-Para revisar a entrega sem usar uma chave, abra a [matriz de avaliação com os 27 JSONs](PROMPT_ENGINEERING_NOTES.md), o [estudo separado com Hydrogen](experimentos/hydrogen-caio-v22/README.md) e o [checklist de publicação](ENTREGA.md).
+## Funcionalidades
 
-## Instalação no Windows
+- **Perfis e tickets.** Os catálogos JSON incluem quatro clientes fictícios e três tickets. É possível cadastrar exemplos editando os catálogos ou informar um relato livre na geração. O relato livre integra aquela execução.
+- **Quatro conteúdos.** O diagnóstico distingue hipóteses e evidências. Os passos apresentam ações, resultados esperados e alternativas. As perguntas priorizam informações faltantes. O fluxograma combina uma representação ASCII e decisões estruturadas.
+- **Prompts versionados.** Cada execução identifica a versão escolhida. A comparação gera respostas para duas versões sob o mesmo perfil, ticket, modelo e parâmetros.
+- **Avaliação humana.** Cada resposta recebe três notas de 1 a 5, com justificativas para clareza, adequação ao cliente e acionabilidade.
+- **Histórico e cache.** Cada execução grava um JSON local com entrada, saída, horário UTC, versão, modelo, configurações e dados de uso disponíveis. O cache reutiliza respostas válidas para entradas e configurações equivalentes.
+- **Duas interfaces.** O Streamlit permite gerar, comparar registros históricos lado a lado e filtrar execuções. A CLI também permite criar comparações e registrar avaliações.
 
-Na raiz do repositório, com Python 3.11 ou superior e PowerShell, execute os comandos abaixo. Se o launcher `py` não encontrar o interpretador, substitua `py -3` por `python` ou pelo caminho de um Python que tenha o módulo venv.
+## Tecnologias
+
+Python 3.11+, argparse, API Gemini via HTTP com requests, python-dotenv, Streamlit opcional e pytest. Os registros são arquivos JSON no sistema de arquivos local.
+
+## Pré-requisitos
+
+Python 3.11 ou superior com pip e venv. A instalação inicial das dependências requer acesso aos pacotes. Para gerar respostas novas, é necessária uma chave com acesso ao modelo Gemini configurado. A consulta às amostras e os testes funcionam sem chave.
+
+## Instalação
+
+No Windows, abra o PowerShell na raiz do repositório e execute:
 
 ```powershell
 py -3 -m venv .venv
 $python = ".\.venv\Scripts\python.exe"
-& $python -m pip install -r requirements.txt
+& $python -m pip install -r requirements-ui.txt
+```
+
+No Linux ou macOS:
+
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements-ui.txt
+```
+
+Para instalar somente a CLI, use `requirements.txt` no comando de instalação. Nos exemplos seguintes, use `python` no lugar de `& $python` em ambientes ativados. Em uma nova sessão do PowerShell, defina novamente a variável `$python` na raiz do projeto.
+
+## Configuração
+
+Para habilitar a geração, copie o modelo de configuração e preencha `LLM_API_KEY` no arquivo local `.env`. No PowerShell:
+
+```powershell
 if (!(Test-Path .env)) { Copy-Item .env.example .env }
-& $python -m pytest -q
+```
+
+No Linux ou macOS, use `cp -n .env.example .env`. Variáveis já definidas no processo têm precedência. O arquivo de exemplo mantém a chave vazia.
+
+| Variável | Valor de exemplo | Finalidade |
+|---|---|---|
+| LLM_API_KEY | vazio | Credencial da API Gemini, usada no servidor local |
+| LLM_PROVIDER | gemini | Provedor implementado |
+| LLM_MODEL | gemini-3.5-flash-lite | Modelo padrão provisório utilizado nas 27 amostras |
+| LLM_TEMPERATURE | 0.3 | Temperatura de geração |
+| LLM_MAX_TOKENS | 4096 | Limite de tokens de saída solicitado |
+| LLM_TIMEOUT_SECONDS | 45 | Timeout da requisição HTTP, em segundos |
+
+## Execução
+
+### Interface Streamlit
+
+```powershell
+& $python -m streamlit run app.py --server.address 127.0.0.1
+```
+
+Abra o endereço indicado no terminal. Em **Comparar prompts**, selecione **Rosa · comparação original · v1 × v2** e escolha uma tarefa para consultar as duas respostas e suas justificativas. **Histórico** combina as amostras versionadas com os registros locais por ID. **Gerar resposta** aciona o backend após a seleção explícita da versão e o clique no botão. Encerre o servidor com Ctrl+C.
+
+### CLI
+
+Para consultar catálogos e o histórico local:
+
+```powershell
 & $python -m support_assistant.cli customers
 & $python -m support_assistant.cli tickets
-```
-
-No Linux ou macOS, crie o ambiente com `python3 -m venv .venv`, ative com `source .venv/bin/activate` e use `python` no lugar de `& $python`. Os testes substituem a camada HTTP ou o provedor e usam diretórios temporários.
-
-Para gerar conteúdo, crie uma chave no [Google AI Studio](https://aistudio.google.com/apikey), selecione um projeto com cota gratuita e preencha `LLM_API_KEY` no arquivo local `.env`. As variáveis do processo têm precedência sobre o arquivo. A temperatura padrão é 0,3 para reduzir a variação entre respostas. O limite é de 4096 tokens por geração e o timeout de rede é de 45 segundos.
-
-O padrão provisório é `gemini-3.5-flash-lite`. Esse modelo produziu todas as 27 amostras do experimento principal. A disponibilidade e a cota dependem do projeto Gemini. O campo `LLM_MODEL` permite selecionar o modelo. A CLI pede a versão de prompt quando ela é omitida em `generate`; a escolha de um padrão único aguarda revisão.
-
-## Interface visual opcional
-
-Na raiz do projeto, instale a dependência opcional uma vez com `& .\.venv\Scripts\python.exe -m pip install -r requirements-ui.txt`. Para abrir a interface no Windows, execute:
-
-```powershell
-& .\.venv\Scripts\python.exe -m streamlit run app.py --server.address 127.0.0.1
-```
-
-Abra o endereço local indicado no terminal. Para demonstrar o projeto sem chave, selecione **Comparar prompts** e abra a comparação original de Rosa. Troque o conteúdo para ver cada par de respostas, as notas e as justificativas. O **Histórico** reúne as amostras versionadas e as execuções locais, com preferência pelo registro local quando o ID coincide.
-
-Em **Gerar resposta**, escolha o cliente, o ticket, a versão e o tipo de conteúdo. O botão aciona o mesmo gerador da CLI, que verifica o cache e usa o Gemini quando precisa de uma nova resposta. A chave fica no ambiente do servidor. Para encerrar a interface, pressione Ctrl+C no terminal.
-
-## Uso
-
-A [revisão v2.2](REVISAO_V2_2.md) preserva as condições e conclusões daquela rodada. A decisão proposta após comparar as quatro versões está nas [notas consolidadas](PROMPT_ENGINEERING_NOTES.md).
-
-Para reproduzir os experimentos registrados, use `LLM_MODEL=gemini-3.5-flash-lite` no arquivo local ou defina a variável no PowerShell. Neste projeto, a API recusou o 2.5 Flash para novos usuários (404) e o 3.8 Flash retornou 503. Os JSONs identificam o modelo efetivamente solicitado em cada chamada.
-
-```powershell
-$env:LLM_MODEL = "gemini-3.5-flash-lite"
-$env:LLM_TEMPERATURE = "0.3"
-$env:LLM_MAX_TOKENS = "4096"
-& $python -m support_assistant.cli generate --customer c1 --ticket t1 --type all --prompt-version v2.1 --no-cache
-& $python -m support_assistant.cli generate --customer c2 --ticket t1 --type diagnosis --prompt-version v2.1 --no-cache
-& $python -m support_assistant.cli generate --customer c2 --ticket t1 --type steps --prompt-version v2.1 --no-cache
-& $python -m support_assistant.cli compare --customer c1 --ticket t2 --type questions --versions v2 v2.1
-& $python -m support_assistant.cli generate --customer c1 --ticket t2 --type questions --prompt-version v2.1
-```
-
-A última linha recupera o resultado recém-comparado do cache. A v1 estabelece a referência simples; a v2 adapta a comunicação ao perfil; a v2.1 acrescenta instruções para calibrar hipóteses, ensinar os testes, solicitar observações e alinhar os ramos do fluxo. Veja os [casos, amostras e avaliações provisórias](REVISAO_V2_1.md).
-
-O catálogo inclui Rosa (`c1`, leiga, telefone) e Caio (`c2`, avançado, chat). O ticket `t1` relata queda de Wi-Fi na sala. O `t2` descreve um aplicativo que fecha e deixa aparelho, sistema e versão em aberto. Use o ID cadastrado ou escreva o relato entre aspas. Os comandos de geração pedem os campos omitidos no terminal.
-
-```powershell
-& $python -m support_assistant.cli generate --customer c1 --ticket t1 --type steps --prompt-version v2
-& $python -m support_assistant.cli generate --customer c1 --ticket t1 --type steps --prompt-version v2
-& $python -m support_assistant.cli generate --customer c2 --ticket "O aplicativo fecha ao abrir" --type questions --prompt-version v1
-& $python -m support_assistant.cli compare --customer c1 --ticket t1 --versions v1 v2 --type all
 & $python -m support_assistant.cli history --customer c1 --version v2 --type diagnosis
 ```
 
-A segunda geração equivalente exibe `cache hit` e o caminho do novo registro. Os tipos são `diagnosis`, `steps`, `questions`, `flow` e `all`. Compare gera oito respostas para `all`, sempre com chamadas novas. Para observar outro perfil, repita com `--customer c2 --ticket t1 --type steps`. Somente compare versões dentro do mesmo cenário.
+Em uma instalação nova, o histórico da CLI começa vazio. As evidências distribuídas estão em `samples/`.
 
-Copie o identificador exibido por compare para consultar e avaliar o grupo:
+Para gerar uma orientação ou iniciar uma **nova** comparação com o Gemini:
 
 ```powershell
-$grupo = Read-Host "ID da comparação"
+& $python -m support_assistant.cli generate --customer c1 --ticket t1 --type steps --prompt-version v2
+& $python -m support_assistant.cli generate --customer c2 --ticket "O aplicativo fecha ao abrir" --type questions --prompt-version v2.2
+& $python -m support_assistant.cli compare --customer c1 --ticket t1 --type all --versions v1 v2
+```
+
+Os tipos aceitos para geração são `diagnosis`, `steps`, `questions`, `flow` e `all`. Uma comparação com `all` solicita oito respostas novas. Na geração individual, `--refresh` atualiza o cache e `--no-cache` exclui o resultado do reaproveitamento.
+
+Para avaliar uma **comparação local nova**, use o ID exibido por `compare`:
+
+```powershell
+$grupo = Read-Host "ID da nova comparação"
 & $python -m support_assistant.cli history --comparison-id $grupo
 & $python -m support_assistant.cli evaluate --comparison-id $grupo
 ```
 
-Para cada resposta, avalie **clareza** (organização e ausência de ambiguidade), **adequação ao nível do cliente** (vocabulário e profundidade) e **acionabilidade** (próximo passo identificável). Use 1 para insuficiente, 2 para fraco, 3 para adequado, 4 para bom e 5 para excelente. Justifique cada nota com um trecho da resposta. Execute o mesmo comando para editar. Para importar notas revisadas, acrescente `--file notas.json`. O objeto JSON deve mapear cada ID de execução do grupo a um objeto com `clarity`, `customer_fit` e `actionability`. Cada critério contém `score` inteiro e `justification` textual.
+A avaliação salva as notas e justificativas no histórico e atualiza a exportação da comparação. Para importar uma revisão, acrescente `--file notas.json` a `evaluate`. O arquivo deve associar cada ID de execução a `clarity`, `customer_fit` e `actionability`, cada um com `score` inteiro e `justification` textual.
 
-## Organização e persistência
+## Estrutura do projeto
 
-| Caminho | Responsabilidade |
+```text
+app.py                    Navegação e interação no Streamlit
+visualizacao.py           Apresentação das respostas e da rubrica
+support_assistant/
+  cli.py                  Comandos, seleção de entradas e avaliação
+  prompts.py              Montagem da instrução, contexto e contrato de saída
+  v*.txt, v*.json         Instruções versionadas usadas em execução
+  generators.py           Geração, validação, reparo e cache
+  gemini.py               Configuração e cliente HTTP
+  storage.py              Leitura, filtros e gravação local
+  evaluation.py           Validação da rubrica e exportação
+data/                     Catálogos de clientes e tickets, propostas de notas
+  history/                Execuções locais, fora do Git
+samples/                  Respostas reais e relatórios por comparação
+experimentos/             Investigação complementar com o Hydrogen
+tests/                    Testes do backend, da CLI e da interface
+```
+
+## Engenharia de prompt e experimentos
+
+| Versão | Estratégia |
 |---|---|
-| data/customers.json e data/tickets.json | Perfis e relatos de exemplo |
-| support_assistant/cli.py | Entrada, seleção e exibição de resultados |
-| support_assistant/prompts.py, v1.txt e v2.txt | Instruções de cada tarefa, contexto e contrato JSON |
-| support_assistant/generators.py | Quatro geradores, validação, reparo e reaproveitamento |
-| support_assistant/gemini.py | Configuração e chamada HTTP com timeout e até três tentativas para 429/5xx |
-| support_assistant/storage.py | Leitura, filtros e escrita atômica por arquivo |
-| support_assistant/evaluation.py | Rubrica, exportação e relatório |
-| tests/ | Testes com dados controlados |
-| samples/ | Exportações das comparações reais |
+| v1 | Estabelece a referência com instruções curtas por tarefa. |
+| v2 | Explicita adaptação ao perfil, ordenação de passos e distinção entre hipótese e evidência. |
+| v2.1 | Detalha calibração de hipóteses, orientação dos testes e correspondência dos ramos do fluxo. |
+| v2.2 | Prioriza testes de isolamento e exige fundamentação para hipóteses, medições e procedimentos. |
 
-O histórico local usa um arquivo por execução em `data/history/<id>.json`. Cada arquivo registra horário UTC, perfil, ticket, tarefa, versão, configurações, provedor, modelo solicitado, saída, cache, latência, uso informado pelo Gemini, ID da comparação e avaliação. Falhas de geração registram o erro com saída nula. A resposta inválida recebe uma tentativa de reparo.
+Na comparação original de Rosa, **v1 e v2 obtiveram 41/60**. A v2 melhorou aspectos de personalização, com regressões de acionabilidade e consistência do fluxograma. As 24 notas aprovadas correspondem a oito respostas do mesmo cenário. [Comparação aprovada](samples/51c126cfcbaa47e28c5274008da4dbdb/relatorio.md) · [Revisão humana](REVISAO_HUMANA_ROSA.md)
 
-O cache procura o registro válido mais recente pelo SHA-256 do JSON canônico do perfil, ticket, tipo, versão, provedor, modelo, temperatura e limite de tokens. `--no-cache` ignora o cache e exclui o novo resultado das consultas futuras. `--refresh` gera um novo resultado que passa a ser o preferido. Ao alterar instruções, versione o prompt ou use refresh. O histórico é adequado para experimentos pequenos, pois a consulta lê os arquivos locais. Chamadas simultâneas equivalentes podem consumir duas requisições.
+As avaliações de v2.1 e v2.2 permanecem provisórias. O estudo exploratório com Hydrogen registra um diagnóstico completo, uma saída interrompida por limite de tokens e uma tentativa com timeout e consumo desconhecido. [Notas de engenharia](PROMPT_ENGINEERING_NOTES.md) · [Revisão v2.1](REVISAO_V2_1.md) · [Revisão v2.2](REVISAO_V2_2.md) · [Estudo Hydrogen](experimentos/hydrogen-caio-v22/README.md)
 
-A comparação exporta os registros e uma tabela em `samples/<comparison_id>/relatorio.md`. A avaliação atualiza os JSONs e o relatório. A validação do formato detecta campos e tipos incorretos, mas a correção técnica, a coerência do fluxo e a adequação ao cliente dependem da revisão humana. Uma execução por versão permite descrever diferenças observadas naquele caso, sem estabelecer superioridade geral.
+## Testes
+
+```powershell
+& $python -m pip check
+& $python -m pytest -q
+```
+
+A suíte usa mocks para os cenários de geração. Com as dependências opcionais instaladas, também verifica a navegação, os filtros, o envio do formulário e os totais da comparação original.
+
+## Limitações
+
+- O contrato JSON valida a estrutura. A correção técnica e a coerência das orientações dependem de revisão humana. Uma saída inválida admite uma tentativa de reparo.
+- A disponibilidade do modelo e a cota dependem da conta Gemini. Novas execuções podem produzir respostas diferentes das amostras, mesmo com os mesmos parâmetros.
+- A amostra experimental é pequena. Um empate na soma das notas permite comparar os casos observados, sem determinar uma versão superior para todos os atendimentos.
+- A consulta ao histórico percorre arquivos locais. Esse desenho atende a uma demonstração de pequeno porte. Gerações simultâneas equivalentes podem consumir mais de uma requisição.

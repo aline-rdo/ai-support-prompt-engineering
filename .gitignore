@@ -8,3 +8,13 @@ __pycache__/
 .pytest_cache/
 data/history/
 .tmp*/
+.tmp-*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.bak
+*.log
+.streamlit/secrets.toml
+PROMPT_CODEX*.md
+PLANO_QUALIDADE_DESAFIO_IA.md
